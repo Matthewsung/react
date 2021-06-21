@@ -12,52 +12,100 @@
 <body>
   <div id="root"></div>
   <script type="text/babel">
-    class Guguban extends React.Component {
-      constructor(props){
-        super(props);
-        this.state = {
-          num1:Math.ceil(Math.random()*9+1),
-          num2:Math.ceil(Math.random()*9+1),
-          value:'',
-          result:'',
-        }
+// Hooks 방법
+
+    const Guguban = () => { 
+      const [num1,setNum1] = React.useState(Math.ceil(Math.random()*9+1));
+      const [num2,setNum2] = React.useState(Math.ceil(Math.random()*9+1));
+      const [value,setValue] = React.useState('');
+      const [result,setResult] = React.useState('');
+      const inputRef = React.useRef();
+      const onChange = (e)=>{ 
+        setValue(e.target.value);
       }
-      onSubmit = (event) => {
+      const onSubmit = () => {
         event.preventDefault();
-        if(parseInt(this.state.value) === this.state.num1 *this.state.num2){
-          this.setState({
-            result: `정답은 ${this.state.num1*this.state.num2} 입니다`,
-            num1:Math.ceil(Math.random()*9+1),
-            num2:Math.ceil(Math.random()*9+1),
-            value:'',
-          })
+        if(parseInt(value) === num1 * num2){
+          setResult("정답");
+          setNum1(Math.ceil(Math.random()*9+1));
+          setNum2(Math.ceil(Math.random()*9+1));
+          setValue("");
+          inputRef.current.focus();
         }
         else{
-          this.setState({
-            result:'오답입니다!!',
-            value:'',
-          })
+          setResult("오답입니다")
+          setValue('')
+          inputRef.current.focus();
         }
       }
-      onChange = event => this.setState({ value : event.target.value})
-
-
-      render(){
-        return (
-          <React.Fragment>
-            <div>{this.state.num1} 곱하기 {this.state.num2}는?</div>
-            <form onSubmit={this.onSubmit}>
-              <input type="number" value={this.state.value} onChange = {this.onChange}/>
-              <button>입력</button>
-            </form>
-            <div>{this.state.result}</div>
-          </React.Fragment>
-        )
-      }
+      
+      return (
+        <React.Fragment>
+             <div>{num1} 곱하기 {num2}는?</div>
+             <form onSubmit={onSubmit}>
+               <input ref={inputRef} type="number" value={value} onChange = {onChange}/>
+               <button>입력</button>
+             </form>
+             <div>{result}</div>
+           </React.Fragment>
+      )
     }
+
+
+// class 방법
+
+
+    // class Guguban extends React.Component {
+    //   constructor(props){
+    //     super(props);
+    //     this.state = {
+    //       num1:Math.ceil(Math.random()*9+1),
+    //       num2:Math.ceil(Math.random()*9+1),
+    //       value:'',
+    //       result:'',
+    //     }
+    //   }
+    //   onSubmit = (event) => {
+    //     event.preventDefault();
+    //     if(parseInt(this.state.value) === this.state.num1 *this.state.num2){
+    //       this.setState((prev)=>{
+    //         return{
+    //           result: `정답은 ${prev.value} 입니다`,
+    //           num1:Math.ceil(Math.random()*9+1),
+    //           num2:Math.ceil(Math.random()*9+1),
+    //           value:'',
+    //         }
+    //       })
+    //     }
+    //     else{
+    //       this.setState((prev) => {
+    //         return {
+    //           result:prev.value + '는 오답입니다!!',
+    //           value:'',
+    //         }
+    //       });
+    //       this.input.focus(); 
+    //     }
+    //   };
+    //   onChange = event => this.setState({ value : event.target.value});
+    //   input;
+    //   onInput = (c)=>{this.input =c;};
+    //   render(){
+    //     return (
+    //       <React.Fragment>
+    //         <div>{this.state.num1} 곱하기 {this.state.num2}는?</div>
+    //         <form onSubmit={this.onSubmit}>
+    //           <input ref={this.onInput} type="number" value={this.state.value} onChange = {this.onChange}/>
+    //           <button>입력</button>
+    //         </form>
+    //         <div>{this.state.result}</div>
+    //       </React.Fragment>
+    //     )
+    //   }
+    // }
   </script>
   <script type="text/babel">
-    ReactDOM.render(<div><Guguban/><Guguban/><Guguban/></div>, document.querySelector('#root'));
+    ReactDOM.render(<div><Guguban/></div>, document.querySelector('#root'));
   </script>
 </body>
 </html>
