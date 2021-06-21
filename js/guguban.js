@@ -4,8 +4,9 @@ let num2;
 const num_1 = document.querySelector('#num_1');
 const num_2 = document.querySelector('#num_2');
 const answer = document.querySelector('#answer');
+
 const enter = document.querySelector('#enter');
-const check = document.querySelector('#check');
+const result = document.querySelector('#result');
 
 
 // 랜덤 숫자 넣어주기
@@ -17,20 +18,21 @@ function inputNumber(){
 }
 // 정답인지 확인
 function validation(){
-  if(num1*num2 == answer.value){
-    check.textContent = "정답입니다",
+  let value = document.querySelector('#answer').value;
+  if(num1*num2 == value){
+    result.textContent = "정답입니다",
     inputNumber()
   }
   else{
-    check.textContent = "오답입니다"
+    result.textContent = "오답입니다"
   }
+  console.log("확인중")
   answer.value = "";
 }
 // 처음 랜덤 숫자 넣기
 inputNumber();
 // 
 answer.addEventListener('keydown',(event)=>{
-  console.log(event.keyCode)
   event.keyCode == 13?validation():console.log();
 })
 enter.addEventListener('click',() => {validation();})
