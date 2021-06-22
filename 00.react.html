@@ -3,7 +3,7 @@
   데이터 처리 간단(데이터와 화면의 일치가 편하다)
   컴포넌트화 시켜 중복을 제거 
 
-2) webpack : 쪼개진 js 파일을 html이 실행할수 있는 js 파일로 변경해준다
+2) webpack : 쪼개진 js / jsx 파일을 html이 실행할수 있는 js 파일로 변경해준다
 
 3) state : 바뀔 여지가 있는 부분(상태)
 
@@ -15,5 +15,5 @@
   - npm init : 실행하면 package.json이 생성(react시 필요한 모든 package를 넣어줌)
   - npm i react react-dom: react와 react-dom 설치
   - npm i -D webpack webpack-cli : react 실행시 필요한 webpack 및 webpack-cli 설치 ( -D: 개발시에만 필요 배포할때는 없어도 됨) / package.json파일의 dependencies는 배포시 사용, devDependencies는 개발시 사용
-
+  - npm i @babel/reset @babel/preset-env @babel/preset-react babel-loader: 바벨 기본 파일, 최신문법을 옛날 문법으로 바꿔주는 파일, jsx같은 파일을 알아볼수있는 파일, babel과 webpack을 연결하는 파일 설치
   client.jsx 나 개인이 만든 jsx파일을 app.js파일로 하나로 만들어(webpack 사용) html파일에서는 app.js 파일만 로드한다

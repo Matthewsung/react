@@ -11,7 +11,7 @@ function getWord (event) {
 check.addEventListener('click',(event) => {
   event.preventDefault();
   let tmpAnswer = answer.value;
-  if(getWord () == tmpAnswer.slice(0,1) &&tmpAnswer.length >1 ){
+  if(getWord () == tmpAnswer.slice(0,1) && tmpAnswer.length > 1 ){
     first.textContent = tmpAnswer;
     answer.value = '';
     result.textContent = "맞았어요"
