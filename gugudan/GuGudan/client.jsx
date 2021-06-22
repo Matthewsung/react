@@ -1,5 +1,5 @@
-const React = require('react');
-const ReactDOM = require('react-dom');
-const GuGuDan = require('./GuGuDan');
+const React = require("react");
+const ReactDOM = require("react-dom");
+const Gugudan = require("./Gugudan");
 
-ReactDOM.render(<GuGuDan/>,document.querySelector('#root') );
+ReactDOM.render(<Gugudan />, document.querySelector("#root"));

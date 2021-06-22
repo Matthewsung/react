@@ -1,41 +1,48 @@
-const React = require('react');
+const React = require("react");
+const { useState, useRef } = React;
 
+const Gugudan = () => {
+  const [first, setFirst] = useState(Math.ceil(Math.random() * 9));
+  const [second, setSecond] = useState(Math.ceil(Math.random() * 9));
+  const [value, setValue] = useState("");
+  const [result, setResult] = useState("");
+  //ref도 useRef를 이용한다
+  const inputRef = useRef(null);
 
-    const GuGudan = () => { 
-      const [num1,setNum1] = React.useState(Math.ceil(Math.random()*9+1));
-      const [num2,setNum2] = React.useState(Math.ceil(Math.random()*9+1));
-      const [value,setValue] = React.useState('');
-      const [result,setResult] = React.useState('');
-      const inputRef = React.useRef();
-      const onChange = (e)=>{ 
-        setValue(e.target.value);
-      }
-      const onSubmit = () => {
-        event.preventDefault();
-        if(parseInt(value) === num1 * num2){
-          setResult("정답");
-          setNum1(Math.ceil(Math.random()*9+1));
-          setNum2(Math.ceil(Math.random()*9+1));
-          setValue("");
-          inputRef.current.focus();
-        }
-        else{
-          setResult("오답입니다")
-          setValue('')
-          inputRef.current.focus();
-        }
-      }
-      
-      return (
-        <React.Fragment>
-             <div>{num1} 곱하기 {num2}는?</div>
-             <form onSubmit={onSubmit}>
-               <input ref={inputRef} type="number" value={value} onChange = {onChange}/>
-               <button>입력</button>
-             </form>
-             <div>{result}</div>
-           </React.Fragment>
-      )
+  const onChange = e => {
+    setValue(e.target.value);
+  };
+
+  const onSubmit = e => {
+    e.preventDefault();
+    if (parseInt(value) === first * second) {
+      setResult(`${first} * ${second} =
+                  ${first * second} 정답`);
+      setFirst(Math.ceil(Math.random() * 9));
+      setSecond(Math.ceil(Math.random() * 9));
+      setValue("");
+    } else {
+      setResult(`${first} * ${second} =
+                  ${first * second}가 정답임. 틀렸음`);
+      setFirst(Math.ceil(Math.random() * 9));
+      setSecond(Math.ceil(Math.random() * 9));
+      setValue("");
     }
+    inputRef.current.focus();
+  };
 
-module.exports = GuGuDan;
+  return (
+    <>
+      <div>
+        {first} * {second} = ?
+      </div>
+      <form onSubmit={onSubmit}>
+        <input type="number" value={value} onChange={onChange} ref={inputRef} />
+        <button>입력</button>
+        <div>{result}</div>
+      </form>
+    </>
+  );
+};
+
+module.exports = Gugudan;
