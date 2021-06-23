@@ -1,4 +1,5 @@
 const path = require('path'); // node에서 경로를 쉽게 잡을때 사용
+
 module.exports ={
   name:'wordrelay-setting',
   mode:'development', //실서비스에서는 production
@@ -15,7 +16,13 @@ module.exports ={
       test:/\.jsx?/, // 정규표현식으로 js파일과 jsx파일을 이 rule을 적용하겠다는 의미
       loader:'babel-loader', // 바벨의 문법 적용하겠다
       option: {
-        presets:['@babel/preset-env','@babel/preset-react'], //js,jsx파일을 바벨에 적용할겠다
+        presets:[['@babel/preset-env', {
+          targets : {
+            browsers:['>1% in KR'],
+          },
+          debug:true,
+        }],
+        '@babel/preset-react'], //js,jsx파일을 바벨에 적용할겠다 // loader의 preset은 plugin들의 집합으로 target으로 각각 지정도 가능
         plugin:['@babel/plugin-proposal-class-porperties'],
       },
     }],
