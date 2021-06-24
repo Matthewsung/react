@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form>
+    <input type="number" id="value">
+    <button>입력</button>
+  </form>
+  <h1 id="result">맞습니다</h1>
+  <script>
+    
+    const answer = [1,2,3,4 ];
+    const result = document.querySelector('#result');
+    const value = document.querySelector('#value')
+
+
+
+    // function getNum(){
+    //   while( answer.length < 4){
+    //     let tmp = Math.round(Math.random() * 8 + 1)
+    //     if(answer.indexOf(tmp) > -1){
+    //       answer.splice(answer.indexOf(tmp),1)
+    //     }
+    //     answer.push(tmp)  
+    //   }
+    //   result.textContent = answer;
+    // }
+    // getNum();
+
+    // function onClick(e){
+    //   e.preventDefault();
+    //   console.log(111)
+    //   console.log(value.value);
+    // }
+    // function onSubmit(e){
+    //   // e.preventDefault();
+    // }
+    document.querySelector('form').addEventListener('submit',(e)=>{
+      e.preventDefault();
+      let tmp = value.value.split('');
+      for(let i =0 ; i < 4; i++){
+        let ttt = answer.indexOf(tmp[i])
+        console.log( answer.indexOf(tmp[i]))
+        // for(let j = 0; j <4; j++){
+        //   console.log(tmp[j] == answer[i])
+        // }
+      }
+      
+
+    })
+
+
+
+
+  </script>
+</body>
+</html>

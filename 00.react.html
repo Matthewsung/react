@@ -24,3 +24,8 @@
     - client.jsx 나 개인이 만든 jsx파일을 app.js파일로 하나로 만들어(webpack 사용) html파일에서는 app.js 파일만 로드한다
     - loader의 preset은 plugin들의 집합으로 target으로 각각 지정도 가능
     - module이나 rules에서 지원하는 plugin외에 적용하는 plugin을 지원
+
+9) require / import : 동일하게 파일을 가져오고 내보낼때 사용 / 둘이 다르긴하지만 호환이 된다(react에 들어가보면 import를 require로 바꾸는 문법이 있어서 가능)
+  const React = require ('react')  === import React from 'react'
+  module.exports = XXX === export default XXX
+
