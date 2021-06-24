@@ -1,10 +1,10 @@
 {
-  "name": "numbaseball",
+  "name": "wordrelay2",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack",
+    "dev":"webpack serve --env development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "JY",

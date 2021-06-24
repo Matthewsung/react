@@ -2,26 +2,34 @@ const path = require('path');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 module.exports = {
-  name:'number_base_ball',
+  name:'WordRelay-setting',
   mode:'development',
-  devtool:'inline-source-map',
+  devtool: 'inline-source-map',
   resolve:{
     extensions:['.js','.jsx']
   },
-  entry:{
+  entry: {
     app:['./client'],
   },
   module:{
-    rules:[{
+    rules: [{
       test:/\.jsx?/,
       loader:'babel-loader',
       options:{
-        presets:['@babel/preset-env','@babel/preset-react'],
+        presets:[
+          ['@babel/preset-env',{
+            targets:{
+              browsers: ['> 5% in KR']
+            },
+            debug: true,
+          }],
+          '@babel/preset-react',
+        ],
         plugins:[
           'react-refresh/babel',
         ],
       },
-      exclude:path.join(__dirname,'node_modules'),
+      exclude: path.join(__dirname, 'node_modules'),
     }],
   },
   plugins:[
@@ -35,5 +43,5 @@ module.exports = {
   devServer:{
     publicPath:'/dist/',
     hot:true,
-  },
-}
+  }
+};  
