@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1 id="#root" class="root"></h1>
+  <form onsubmit="onSubmit()">
+    <input type="number" id="value">
+  </form>
+  <script>
+    const value = document.querySelector('#value');
+    const Root = document.getElementById('#root');
+    let num = [];
+    let tmp ;
+    function getNumber(){
+      for(let i=0; i < 1000; i++){
+        if(num.length >= 4){break}
+        tmp = Math.round(Math.random()* 8 +1);
+        num.indexOf(tmp)>-1?console.log:num.push(tmp)
+      }
+      return num;
+    }
+    function onSubmit(){
+      let strike = 0;
+      let ball = 0;
+      let aaa = value.value;
+
+      event.preventDefault();
+
+      for(let i =0; i<aaa.length; i++){
+        if(getNumber().join('').indexOf(aaa[i]) > -1 ){
+          getNumber().join('').indexOf(aaa[i]) === i?strike += 1:ball +=1;
+        }
+        else{
+          console.log("겹치는게 없다");
+        }
+      }
+      Root.append(`제출한 값 : ${aaa} strike:  ${strike},ball: ${ball}`)
+      let br = document.createElement('br')
+      Root.append(br)
+      console.log(getNumber())
+      if(getNumber().join('') == aaa){
+        Root.append(`홈런입니다`)
+      }
+    }
+
+
+    </script>
+</body>
+</html>
