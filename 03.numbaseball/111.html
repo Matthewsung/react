@@ -9,14 +9,14 @@
 <body>
   <script>
     function getNumbers(){
-      let num =[];
-      let tmp;
-      for(let i =0; i<9999; i++){
-        tmp = Math.round(Math.random()*8+1);
-        !num.includes(tmp)?num.push(tmp):console.log()
-        if(num.length == 4){break}
-      }
-      return num
+        let num =[];
+        let tmp;
+        for(let i =0; i<9999; i++){
+          tmp = Math.round(Math.random()*8+1);
+          !num.includes(tmp)?num.push(tmp):console.log()
+          if(num.length == 4){break}
+        }
+        return num
     };
     console.log(getNumbers());
 </script>
