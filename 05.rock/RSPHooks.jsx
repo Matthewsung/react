@@ -33,11 +33,11 @@ const RSPHooks =()=>{
   const interval = useRef();
 
   useEffect(()=>{
-    interval.current = setTimeout (changeHand(),1000);
+    interval.current = setInterval (changeHand(),1000);
     return ()=>{
       clearInterval(interval.current)
     }
-  },[imgCord]);
+  },[]);
 
   const changeHand =()=>{
     if(imgCord == 0 ){
