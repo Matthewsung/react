@@ -39,9 +39,18 @@
   PureComponent (class) / memo(Hooks) 를 사용하거나 shouldComponentUpdate로 각자 조건을 만들어주면 변하는 부분만 랜더링 됨
 
 12) Lifecycle : component가 나타났다 사라졌다
-  - class 시 : constructor => render => ref => componentDidMount => (setState/props가 바뀔때 => shouldComponentUpdate => reder => componentDidUpdate)
+  - class 시 : constructor => render => ref => componentDidMount
+  - (setState/props가 바뀔때 => shouldComponentUpdate => reder => componentDidUpdate)
   - 부모가 나를 없앴을때 : componentWillUnmout => 소멸
       
     componentDidMount(){  } : Dom에 render가 성공하면 실행할 것들(re-render시 실행되지 않음) / 비동기 요청을 많이함
     componentDidUpdate(){ } : re-render 후 실행
     componentWillUnmout(){ } : component가 제거되기 직전에 실행 / 비동기 요청을 정리
+  
+  - Hooks 시
+    useEffect( ()=>{ 
+      //componentDidMount componentDidUpdate를 대체
+      return ()=>{ 
+        // componentWillUnmout를 대체
+       }
+    }, []) //배열이 closer 문제를 보통 해결 (useEffect를 실행하고 싶은 state를 넣어준다)
