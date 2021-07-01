@@ -5,11 +5,36 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    .ball{
+      display: inline-block;
+      border: 1px solid;
+      border-radius: 50%;
+      width: 40px ;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      font-size: 20px;
+      margin-right: 20px;
+      
+    }
+  </style>
 </head>
 <body>
   
   <div id="root"></div>
-  
+  <!-- <script>
+    function getnumber(){
+      const candidate = Array(45).fill().map((value,index)=>{ return index + 1});
+      const shuffle = [];
+      while(candidate.length > 0){
+        shuffle.push( candidate.splice(Math.floor(Math.random() * candidate.length) , 1) )
+      }
+      const bonus = shuffle[shuffle.length - 1]
+      return [shuffle.slice(0,6) , bonus];
+    };
+    getnumber();
+  </script> -->
   <script src="dist/app.js"></script>
 </body>
 </html>
