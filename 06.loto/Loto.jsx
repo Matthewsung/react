@@ -1,4 +1,5 @@
-import React, {Component, useState, useRef, useEffect} from 'react';
+import React, {Component, useState, useRef, useEffect , useMemo, useCallback } from 'react';
+import { timeouts } from 'retry';
 import Ball from './Ball';
 
 
@@ -11,40 +12,42 @@ function getnumber(){
   const bonus = shuffle[shuffle.length - 1]
   return [...shuffle.slice(0,6) , bonus];
 };
+
+
 const Loto = () => {
-  const [winNumbers, setWinNumbers] = useState(getnumber());
+  const lottoNumbers = useMemo( ()=> getnumber(),[])
+  const [winNumbers, setWinNumbers] = useState(lottoNumbers);
   const [winBalls, setWinBalls] = useState([]);
   const [bonus, setBonus] = useState(null);
   const [redo, setRedo] = useState(false);
-  const timeOust = useRef([]);
-  const runTimeOuts = () => {
+  const timeOuts = useRef([]);
+
+  useEffect( ()=>{
     for(let i =0; i < winNumbers.length-1; i++){
-      timeOuts[i] = setTimeout( ()=>{
-        setWinBalls((prevState) => {
-          return [...prevState.winBalls,winNumbers[i] ]
-        })
+      timeOuts.current[i] = setTimeout( ()=>{
+        setWinBalls((prevBalls) => [...prevBalls , winNumbers[i] ])
       },100*(i+1))
     }
-    timeOuts[6] = setTimeout(() => {
+    timeOuts.current[6] = setTimeout(() => {
       setBonus(winNumbers[winNumbers.length-1])
       setRedo(true)
     },700)
-  }
+    return ()=>{
+      timeOuts.current.forEach((v)=>{
+        clearTimeout(v)
+      })
+    }
+  },[timeOuts.current]);
+
   const onClickRedo = ()=>{
     setWinNumbers(getnumber())
     setWinBalls([])
     setBonus(null)
-    setRedo(false)
-    
-    timeOuts=[]; 
+    setRedo(false)    
+    timeOuts.current=[]; 
   }
 
-  useEffect(()=>{
-    runTimeOuts();
-    return(
-      winBalls.length == 0?runTimeOuts():()=>{}
-    )
-  },[])
+  
   return(
     <>
         <div>당첨 숫자</div>
@@ -53,7 +56,7 @@ const Loto = () => {
         </div>
         <div>보너스!</div>
         {bonus && <Ball number={bonus}/>}
-        {redo && <button onClick={this.onClickRedo }>한번더!</button>}
+        {redo && <button onClick={onClickRedo }>한번더!</button>}
         
       </>
   )

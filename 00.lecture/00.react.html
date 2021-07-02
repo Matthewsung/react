@@ -47,10 +47,18 @@
     componentDidUpdate(){ } : re-render 후 실행
     componentWillUnmout(){ } : component가 제거되기 직전에 실행 / 비동기 요청을 정리
   
-  - Hooks 시
+  - Hooks 시 useEffect사용 ( 여러번 사용 가능)
     useEffect( ()=>{ 
       //componentDidMount componentDidUpdate를 대체
       return ()=>{ 
         // componentWillUnmout를 대체
        }
     }, []) //배열이 closer 문제를 보통 해결 (useEffect를 실행하고 싶은 state를 넣어준다)
+
+    useEffect( () => {} , [])
+      [] : componentDidMount와 동일
+      [요소] : componentDidMount + componentDidUpdate
+      {return } : componentWillUnmout 역할 
+13) useMemo( ()=>{ }, []) : 함수의 return '값'을 기억해둠 / 2번째 요소([])가 바뀌기 전까지 값을 기억해둠
+14) useCallback ( ()=> { }, []) : '함수' 자체를 기억해둠 / useCallback안의 state를 무조건 []안에 넣어줘야함 / 자식 component에 props를 전달하는 함수에서는 무조건 callback함수 사용
+15) Hooks의 경우는 실행 순서가 중요 // 조건문이나 반복문을 사용해서 실행순사가 변하면 안됨
