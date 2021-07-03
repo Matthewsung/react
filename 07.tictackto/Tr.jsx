@@ -1,11 +1,13 @@
 import React,{ useReducer , useCallback , useEffect} from 'react';
 import Td from './Td'
-const Tr = ({tableData, TrIndex, TrData, dispatch}) => {
+const Tr = ({state, tableData, TrIndex, TrData, dispatch}) => {
+  // console.log(TrData)
   return(
     <tr>
       {Array(TrData.length).fill().map(( v , i )=> <Td key={i+'이다'} 
       dispatch={dispatch} 
-      TdData={TrIndex[i]} 
+      state={state}
+      TdData={TrData[i]} 
       TdIndex={i}
       TrIndex={TrIndex} />)}
     </tr>

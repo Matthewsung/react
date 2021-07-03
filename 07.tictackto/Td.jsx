@@ -1,12 +1,16 @@
 import React,{ useReducer , useCallback , useEffect} from 'react';
-import {SELECT_CELL} from './TTT'
-const Td = ({tableData,TrIndex, TdIndex, TdData, dispatch}) =>{
+import {SELECT_CELL, CHANGE_TURN} from './TTT'
+const Td = ({state,tableData,TrIndex, TdIndex, TdData, dispatch}) =>{
   const onClickTd= () => {
+    if(TdData){
+      return;
+    }
     dispatch({type:SELECT_CELL, row:TrIndex, cell:TdIndex})
-    console.log(TrIndex, TdIndex)
+    dispatch({type:CHANGE_TURN, turn:state.turn == 'O'? 'X':'O'})
+    // console.log(TrIndex, TdIndex)
   }
   return (
-    <td onClick={onClickTd}>{}</td>
+    <td onClick={onClickTd}>{TdData}</td>
   )
 }
 
