@@ -1,12 +1,40 @@
-import React from 'react';
+import React,{ useReducer , useCallback , useEffect} from 'react';
 import Tr from './Tr'
 
-const Table = ({onClick , tableData, dispatch})=>{
-  return (
+const Table = () => {
+  
+
+  return(
     <table>
-      {Array(tableData.length).fill().map((tr, i)=><Tr rowIndex={i} rowData={tableData[i]} dispatch={dispatch}/> )}  
+      <Tr />
     </table>
   )
 }
 
 export default Table
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React from 'react';
+// import Tr from './Tr'
+
+// const Table = ({onClick , tableData, dispatch})=>{
+//   return (
+//     <table>
+//       {Array(tableData.length).fill().map((tr, i)=><Tr rowIndex={i} rowData={tableData[i]} dispatch={dispatch}/> )}  
+//     </table>
+//   )
+// }
+
+// export default Table
