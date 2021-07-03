@@ -1,12 +1,16 @@
 import React,{ useReducer , useCallback , useEffect} from 'react';
 import Tr from './Tr'
 
-const Table = () => {
-  
-
+const Table = ({tableData, dispatch}) => {
   return(
     <table>
-      <Tr />
+      <tbody>
+        {Array(tableData.length).fill().map((v,i)=> <Tr 
+        key={i+'입니다'} 
+        TrIndex={i} 
+        TrData={tableData[i]} 
+        dispatch={dispatch}/>)}
+      </tbody>
     </table>
   )
 }

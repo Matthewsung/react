@@ -3,27 +3,30 @@ import Table from './Table';
 
 const initialState ={
   winner:'',
-  turn:'0',
-  tableData:[['','',''],['','',''],['','','']]
+  turn:'O',
+  tableData:[['','','','',''],['','','','',''],['','','','',''],['','','','',''],['','','','','']]
 };
 
-const Click = 'Click';
-
+export const SELECT_CELL ='SELECT_CELL'
 const reducer =(state, action)=>{
   switch(action.type){
-    case  Click:
-      return {
+    case SELECT_CELL:
+      const tableData = [...state.tableData];
+      tableData[action.row] = [...state.tableData[action.row]]
+      tableData[action.row][action.cell] = state.turn;
+      return{
         ...state,
-        turn:action.turn
-    }
+        tableData
+
+      }
   }
 };
 const Tick = () => {
-  const [state, dispatch] = useReducer(reducer,initialState );
-  dispatch({type: Click, turn:'X'})
+  // console.log(state.row, state.cell)
+  const [state, dispatch] = useReducer(reducer,initialState)
   return(
     <>
-      <Table/>
+      <Table tableData={state.tableData} dispatch={dispatch}/>
     </>
   )
 }

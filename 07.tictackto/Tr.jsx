@@ -1,24 +1,18 @@
 import React,{ useReducer , useCallback , useEffect} from 'react';
 import Td from './Td'
-const Tr = () => {
-
+const Tr = ({tableData, TrIndex, TrData, dispatch}) => {
   return(
-      <tbody>
-      <Td />
-      </tbody>
+    <tr>
+      {Array(TrData.length).fill().map(( v , i )=> <Td key={i+'이다'} 
+      dispatch={dispatch} 
+      TdData={TrIndex[i]} 
+      TdIndex={i}
+      TrIndex={TrIndex} />)}
+    </tr>
   )
 };
 
 export default Tr
-
-
-
-
-
-
-
-
-
 
 
 

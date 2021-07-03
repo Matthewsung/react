@@ -1,37 +1,16 @@
 import React,{ useReducer , useCallback , useEffect} from 'react';
-const Td = () =>{
-
+import {SELECT_CELL} from './TTT'
+const Td = ({tableData,TrIndex, TdIndex, TdData, dispatch}) =>{
+  const onClickTd= () => {
+    dispatch({type:SELECT_CELL, row:TrIndex, cell:TdIndex})
+    console.log(TrIndex, TdIndex)
+  }
   return (
-    <tr>
-      <td>안녕</td>
-    </tr>
+    <td onClick={onClickTd}>{}</td>
   )
 }
 
 export default Td
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // import React, { useCallback } from 'react';
