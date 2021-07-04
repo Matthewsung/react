@@ -1,16 +1,16 @@
-import React,{ useReducer , useCallback , useEffect} from 'react';
+import React,{ useReducer , useCallback , useEffect, Memo} from 'react';
 import {SELECT_CELL, CHANGE_TURN} from './TTT'
 const Td = ({state,tableData,TrIndex, TdIndex, TdData, dispatch}) =>{
-  const onClickTd= () => {
+  
+  const onClickTd= useCallback(() => {
     if(TdData){
       return;
     }
     dispatch({type:SELECT_CELL, row:TrIndex, cell:TdIndex})
-    dispatch({type:CHANGE_TURN, turn:state.turn == 'O'? 'X':'O'})
-    // console.log(TrIndex, TdIndex)
-  }
+    
+  },[TdData])
   return (
-    <td onClick={onClickTd}>{TdData}</td>
+    Memo(<td onClick={onClickTd}>{TdData}</td>)
   )
 }
 

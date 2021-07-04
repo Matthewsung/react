@@ -4,74 +4,92 @@ import Table from './Table';
 const initialState ={
   winner:'',
   turn:'O',
-  tableData:[['','',''],['','',''],['','','']]
+  tableData:[['','',''],['','',''],['','','']],
+  recent:[-1, -1]
 };
 
 export const SELECT_CELL ='SELECT_CELL'
 export const CHANGE_TURN ='CHANGE_TURN'
+const RESET_GAME = 'RESET_GAME'
 const WINNER = 'WINNER'
 const reducer =(state, action)=>{
   switch(action.type){
     case SELECT_CELL:
       const tableData = [...state.tableData];
-      tableData[action.row] = [...state.tableData[action.row]]
+      tableData[action.row] = [...tableData[action.row]]
       tableData[action.row][action.cell] = state.turn;
       return{
         ...state,
-        tableData:tableData,
+        tableData,
+        recent:[action.row,action.cell]
       }
     case CHANGE_TURN:
       return{
         ...state,
-        turn:action.turn
+        turn:state.turn == 'O'? 'X':'O'
       }
     case WINNER:
       return{
         ...state,
         winner:action.winner
       }
+    case RESET_GAME:
+      return{
+        ...state,
+        turn:'O',
+        tableData:[['','',''],['','',''],['','','']],
+        recent:[-1, -1]
+      }
   }
 };
 const Tick = () => {
-  // console.log(state.row, state.cell)
   const [state, dispatch] = useReducer(reducer,initialState);
+  const {tableData, turn, winner, recent} = state
 
   useEffect(()=>{
+    const [row,cell] = recent;
+
+    if(row < 0){
+      return;
+    }
     let win =false;
-    if(state.state.tableData[row][0] == turn &&state.tableData[row][1] == turn &&state.tableData[row][2] == turn ){
+    if(tableData[row][0] == turn && tableData[row][1] == turn && tableData[row][2] == turn ){
       win = true;
     }
-    if(state.state.tableData[0][cell] == turn &&state.tableData[1][cell] == turn &&state.tableData[2][cell] == turn ){
+    if(tableData[0][cell] == turn &&tableData[1][cell] == turn &&tableData[2][cell] == turn ){
       win = true;
     }
-    if(state.state.tableData[0][0] == turn &&state.tableData[1][1] == turn &&state.tableData[2][2] == turn ){
+    if(tableData[0][0] == turn &&tableData[1][1] == turn &&tableData[2][2] == turn ){
       win = true;
     }
-    if(state.state.tableData[2][0] == turn &&state.tableData[1][1] == turn &&state.tableData[0][2] == turn ){
+    if(tableData[2][0] == turn &&tableData[1][1] == turn &&tableData[0][2] == turn ){
       win = true;
     }
     if(win){
       dispatch({type:WINNER, winner:turn})
+      dispatch({type:RESET_GAME})
+    } else{
+        let all = true;
+      tableData.forEach((row)=>{
+        row.forEach((cell)=>{
+          if(!cell){
+            all = false;
+          }
+        })
+      })
+      if(all){
+        dispatch({type:RESET_GAME})
+      }else{
+        dispatch({type:CHANGE_TURN})
+      }
     }
-
-  },[])
-  // dispatch(()=>{
-  //   if(state.state.tableData[row][0] == turn &&state.tableData[row][1] == turn &&state.tableData[row][2] == turn ){
-  //     return {type:'WINNER'}
-  //   }
-  //   if(state.state.tableData[0][cell] == turn &&state.tableData[1][cell] == turn &&state.tableData[2][cell] == turn ){
-  //     return {type:'WINNER'}
-  //   }
-  //   if(state.state.tableData[0][0] == turn &&state.tableData[1][1] == turn &&state.tableData[2][2] == turn ){
-  //     return {type:'WINNER'}
-  //   }
-  //   if(state.state.tableData[2][0] == turn &&state.tableData[1][1] == turn &&state.tableData[0][2] == turn ){
-  //     return {type:'WINNER'}
-  //   }
-  // })
+    
+  },[recent])
+  
   return(
     <>
       <Table state={state} tableData={state.tableData} dispatch={dispatch}/>
+      {winner?<h1>{state.winner}의 승리입니다</h1>: <h1>무승부입니다</h1>} 
     </>
   )
 }
