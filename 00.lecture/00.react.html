@@ -62,3 +62,7 @@
 13) useMemo( ()=>{ }, []) : 함수의 return '값'을 기억해둠 / 2번째 요소([])가 바뀌기 전까지 값을 기억해둠
 14) useCallback ( ()=> { }, []) : '함수' 자체를 기억해둠 / useCallback안의 state를 무조건 []안에 넣어줘야함 / 자식 component에 props를 전달하는 함수에서는 무조건 callback함수 사용
 15) Hooks의 경우는 실행 순서가 중요 // 조건문이나 반복문을 사용해서 실행순사가 변하면 안됨
+
+16) context : 하나씩 props로 자식에게 넘겨주는 것을 context로 한번에 손자에게까지 옮겨줄수 있음
+    - createContext를 불러온 후 원하는 이름으로 createContext 선언(초기값을 넣어줌)
+    - render 될 곳을 <></> 아닌 <선언한 이름.Provider></선언한 이름.Provider>으로 감싼후  value={{보낼 값}}을 넣어줌
