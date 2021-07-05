@@ -1,5 +1,5 @@
 import React,{useState, useCallback, useEffect, useReducer, useContext} from 'react'
-import { TableContext } from './bomb';
+import { TableContext,START_GAME } from './bomb';
 
 const Form = ()=> {
 

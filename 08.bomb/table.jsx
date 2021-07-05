@@ -1,10 +1,16 @@
-import React,{useState, useCallback, useEffect, useReducer, useContext} from 'react'
+import React,{ useContext} from 'react'
 import Tr from './tr'
-const Table = ()=> {
+import { TableContext } from './bomb';
 
+const Table = ({value})=> {
+
+  const { tableData } = useContext(TableContext);
+  console.log({tableData}, tableData, value)
   return(
     <table>
-      <Tr />
+      <tbody>
+        {Array(tableData.length).fill().map((v, i)=><Tr key={"tr"+i} rowIndex={i}/>)}
+      </tbody>
     </table>
   )
 }
