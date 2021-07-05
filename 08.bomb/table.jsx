@@ -5,7 +5,6 @@ import { TableContext } from './bomb';
 const Table = ({value})=> {
 
   const { tableData } = useContext(TableContext);
-  console.log({tableData}, tableData, value)
   return(
     <table>
       <tbody>
