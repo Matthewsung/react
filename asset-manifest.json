@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Matthewsung/react/10.movie_app/static/css/main.e0db79f3.chunk.css",
+    "main.js": "/Matthewsung/react/10.movie_app/static/js/main.1d9de604.chunk.js",
+    "main.js.map": "/Matthewsung/react/10.movie_app/static/js/main.1d9de604.chunk.js.map",
+    "runtime-main.js": "/Matthewsung/react/10.movie_app/static/js/runtime-main.75a22538.js",
+    "runtime-main.js.map": "/Matthewsung/react/10.movie_app/static/js/runtime-main.75a22538.js.map",
+    "static/js/2.3d5a5d75.chunk.js": "/Matthewsung/react/10.movie_app/static/js/2.3d5a5d75.chunk.js",
+    "static/js/2.3d5a5d75.chunk.js.map": "/Matthewsung/react/10.movie_app/static/js/2.3d5a5d75.chunk.js.map",
+    "static/js/3.4316534f.chunk.js": "/Matthewsung/react/10.movie_app/static/js/3.4316534f.chunk.js",
+    "static/js/3.4316534f.chunk.js.map": "/Matthewsung/react/10.movie_app/static/js/3.4316534f.chunk.js.map",
+    "index.html": "/Matthewsung/react/10.movie_app/index.html",
+    "static/css/main.e0db79f3.chunk.css.map": "/Matthewsung/react/10.movie_app/static/css/main.e0db79f3.chunk.css.map",
+    "static/js/2.3d5a5d75.chunk.js.LICENSE.txt": "/Matthewsung/react/10.movie_app/static/js/2.3d5a5d75.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.75a22538.js",
+    "static/js/2.3d5a5d75.chunk.js",
+    "static/css/main.e0db79f3.chunk.css",
+    "static/js/main.1d9de604.chunk.js"
+  ]
+}
