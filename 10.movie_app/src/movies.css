@@ -1,0 +1,11 @@
+h1,h3, h5{
+  text-align: center;
+}
+img{
+  margin: 0 auto;
+  text-align: center;
+  display: block;
+}
+.title{
+  color: red;
+}
