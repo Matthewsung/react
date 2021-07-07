@@ -5,7 +5,6 @@ import Home from './route/Home'
 import Nav from './component/nav';
 
 class App extends Component {
-
   render(){
     return(
       <HashRouter>
