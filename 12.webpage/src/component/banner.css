@@ -1,0 +1,35 @@
+.banner_box{
+  width: 100%;
+  position: relative;
+}
+.banner{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* position:absolute;
+  left: 0;
+  top: 0; */
+  opacity: 1;
+}
+.b_R{
+  width: 40%;
+  color: #134aa9;
+}
+.b_text{  
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.b_text p:nth-child(1){
+  font-size: 30px;
+  font-weight: 900;
+}
+.b_text p:nth-child(2){
+  font-size: 70px;
+  font-weight: 900;
+}
+.b_img{
+  width: 60%;
+}
