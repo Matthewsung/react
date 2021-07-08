@@ -15,6 +15,7 @@
 .b_R{
   width: 40%;
   color: #134aa9;
+  position: relative;
 }
 .b_text{  
   position: absolute;

@@ -3,23 +3,55 @@ import './banner.css'
 const Banner = () =>{
   const [bGap,setBGap] = useState(1)
   const [bIndex,setBIndex] = useState(0)
-
   useEffect ( () => {
     const banner = document.querySelectorAll('.banner')
-    // banner.forEach((v)=>{console.log(v)})
-    console.log(banner[2])
-    // banner.forEach(()=>{
-      banner[bIndex].style.opacity = bGap;
-      const interval = setInterval(()=>{  
+    // console.log(banner[bIndex])
+    // banner[bIndex].style.opacity = bGap;
+    
+    // const interval = setInterval(()=>{        
+      //   setBGap( (prevState)=> {
+        //     return bGap >=0 ? prevState - 0.1: clearInterval(interval)
+        //   })
+        //   return (
+          //     clearInterval(interval),
+          //     setBIndex((prevState)=> prevState >= 2 ? prevState = 0 : prevState + 1 )
+          //   ) 
+          // },500)
+    const interval = setInterval(()=>{
+      banner[bIndex].style.opacity = bGap;//1
       
-        setBGap( (prevState)=> {
-          return bGap >=0 ? prevState - 0.1: clearInterval(interval)
-        })
-        return (
-          clearInterval(interval),
-          setBIndex((prevState)=> prevState >3 ? 0 : prevState + 1 )
-        ) 
-      },500)
+      setBGap((prevState) => {
+        if(prevState > 0){
+          return prevState - 0.5
+        }
+        else{
+          return 1
+        }
+      })
+      
+      if(bGap <= 0){
+        setBIndex( (prevState) => prevState + 1)
+      }
+      else{
+        return
+      }
+      if(bIndex >= 2){
+        setBIndex(0);
+        
+      }
+      else{
+        console.log("bIndex 안바뀐다")
+      }
+      // bGap <= 0 ? setBIndex( (prevState) => prevState + 1) : console.log("bGap 안바뀐다")
+      // bIndex >= 2 ? setBIndex(0):console.log("bIndex 안바뀐다")
+      
+      console.log(bGap,bIndex)
+      // banner[bIndex+1].style.opacity = 0.5
+
+      
+      return clearInterval(interval)
+    },1000)
+    
   }, [bGap])
     
 
