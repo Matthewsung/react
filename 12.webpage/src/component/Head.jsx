@@ -10,8 +10,8 @@ const Head = () =>{
   }
   const onMouseLeaveMenu = (e)=>{
     const sub_menu = document.querySelector('.sub_menu');
-    console.log(e.target)
-    if(e.target.className == 'menu_li'){
+    // console.log(e.target)
+    if(e.target.className === 'menu_li'){
       return;
     }else{
       sub_menu.classList.remove('sub_menu_act')
@@ -22,7 +22,9 @@ const Head = () =>{
       <div className="header">
         <div className="w_1440">
           <div className="logo">
-            <a href="#"><img src="img/main-logo.svg" alt="로고" /></a>
+            {/* <a href="#"> */}
+              <img src="img/main-logo.svg" alt="로고" />
+            {/* </a> */}
           </div>
           <ul className="menu_ul" onMouseEnter={onMouseEnterMenu} onMouseLeave={onMouseLeaveMenu}>
             <li className="menu_li">경기생활문화센터</li>

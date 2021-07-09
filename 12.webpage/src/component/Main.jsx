@@ -1,15 +1,14 @@
 import React from 'react';
 import Banner from './Banner'
+import Education from './Education'
 import '../index.css'
 
 const Main = () =>{
   
   return (
     <>
-      <div className="w_1440">
-        <Banner />
-
-      </div>
+      <Banner />
+      <Education/>
 
     </>
   )
