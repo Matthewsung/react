@@ -1,6 +1,6 @@
 import React, { useState, useEffect ,  } from 'react';
 import './education.css'
-
+import Program from './program'
 const Education = () =>{
   const DATA = new Date;
   const [year, setYear]=useState(DATA.getFullYear())
@@ -8,6 +8,7 @@ const Education = () =>{
   const [totalDay,setTotalDay] = useState(Array(new Date(DATA.getFullYear() , month , 0 ).getDate()).fill().map((v,i)=>i+1))
   const [day, setDay] = useState(DATA.getDate())
   const today = document.getElementsByClassName('today')
+  const [program, setProgram] =useState(Array(6).fill(''))
 
 useEffect ( ()=>{
   const m_date = document.querySelector('.m_date')
@@ -27,6 +28,7 @@ useEffect ( ()=>{
     }
     today[day-1].classList.remove('today_act')
   }
+  console.log(program)
   return (
     <>
     <div className="education">
@@ -50,16 +52,7 @@ useEffect ( ()=>{
           </div>
         </div>
         <div className="program_box">
-          <div className="program">
-            <div className="p_img">
-              <img src="img/slide1.png" alt="슬라이드1" />
-            </div>
-            <div className="p_text">
-              
-              <div><p>#교육</p> 2021.01.31 ~ 2021.12.31</div>
-              <div>미사누그 드로잉</div>
-            </div>
-          </div>
+          {program.map((v,i)=> <Program />)}
         </div>
       </div>
     </div>

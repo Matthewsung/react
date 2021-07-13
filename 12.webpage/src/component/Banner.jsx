@@ -38,7 +38,6 @@ const Banner = () =>{
   
   return (
     <>
-    <div className="w_1440">
       <div className="banner_box" >
         <div className="banner" id="banner_1"style={{opacity:"1"}}>
           <div className="b_R">
@@ -91,7 +90,6 @@ const Banner = () =>{
         <li className="b_menu_li">경기상상캠퍼스<div className="b_icon">→</div></li>
         <li className="b_menu_li">온라인 문의<div className="b_icon">→</div></li>
       </ul>
-    </div>
     </>
   )
 }

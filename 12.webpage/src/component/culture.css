@@ -1,0 +1,100 @@
+.culture_box{ 
+  width: 100%;
+  height: 1000px;
+  margin: 100px 0 ;
+}
+.c_title{
+  width: 100%;
+  text-align: center;
+}
+.c_mid{
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  margin: 50px 0;
+  overflow: hidden;
+  position: relative;
+
+}
+.mid_L{
+  width: 70px;
+  float: left;
+}
+.mid_C{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+.mid_C select{
+  width: 150px;
+  height: 30px;
+  border: none;
+  border-bottom: 1px solid;
+  margin-right: 20px;
+  outline: none;
+}
+.mid_R{
+  width: 70px;
+  float: right;
+}
+.c_slide_box{
+  width: 100%;
+  position: relative;
+  padding-bottom: 39%;
+}
+.c_slide{
+  width: calc( (100% - (20px *3)) / 4);
+  margin-right: 20px;
+  float: left;
+}
+.c_slide:last-child{
+  margin-right: 0;
+}
+.slide_img{
+  width: 100%;
+  position: relative;
+}
+.slide_img img{
+  width: 100%;
+}
+.side_txt{
+  position: absolute;
+  right: 3%;
+  top: 5%;
+}
+.side_txt div{
+  font-size: 14px;
+  padding: 5px 8px;
+  margin-right: 5px;
+  border-radius: 5px;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  float: left;
+}
+
+.slide_txt{
+
+}
+.c_slide_title{
+  font-size: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.c_slide_title span{
+  font-size: 15px;
+  padding: 3px 5px;
+  color: #004a71;
+  background: #d8f6ff;
+  border-radius: 10px;
+}
+
+.c_more{
+  width: 150px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  margin: 100px auto;
+  border: 1px solid #000;
+}
