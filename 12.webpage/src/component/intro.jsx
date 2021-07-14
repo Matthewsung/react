@@ -1,14 +1,19 @@
 import React from 'react';
 import './intro.css'
 const Intro = ()=>{
-
+const onMouseEnterMore = ()=>{
+  
+}
+const onMouseLeaverMore = ()=>{
+  
+}
   return (
     <>
     <div className="intro_box w_1440">
       <div className="intro_title">
         <h1>경기생활문화센터<br/>공간소개</h1>
         <h4>경기생활문화센터에서 운영하는 공간을 둘러보세요.</h4>
-        <div className="i_more">MORE</div>
+        <div className="i_more" onMouseEnter={onMouseEnterMore} onMouseLeave={onMouseLeaverMore}>MORE</div>
       </div>
       <div className="intro_content">
         <div className="i_L">

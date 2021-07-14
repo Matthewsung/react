@@ -8,24 +8,22 @@ const Education = () =>{
   const [totalDay,setTotalDay] = useState(Array(new Date(DATA.getFullYear() , month , 0 ).getDate()).fill().map((v,i)=>i+1))
   const [day, setDay] = useState(DATA.getDate())
   const today = document.getElementsByClassName('today')
-  const [program_arr, setProgram] =useState(Array(7).fill(''))
+  const [program_arr, setProgram] =useState(Array(6).fill(''))
 
 useEffect ( ()=>{
   const m_date = document.querySelector('.m_date')
   const program = document.getElementsByClassName('program')
   const p_width = program[0].clientWidth
   today[day-1].classList.add('today_act')
-  const arr = [(p_width+20)*0 + "px",(p_width+20)*1 + "px",(p_width+20)*2 + "px",(p_width+20)*3 + "px",(p_width+20)*4 + "px",(p_width+20)*5 + "px"]
-  let index =0;
+  const arr = [(p_width+20)*0 + "px", (p_width+20)*1 + "px", (p_width+20)*2 + "px", (p_width+20)*3 + "px", (p_width+20)*4 + "px",(p_width+20)*5 + "px"]
   arr.map((v,i)=> program[i].style.left=v)
 
 
-  // setInterval(()=>{
-
-  //   program[index % program.length].style.left = arr[(index-1) % program.length]
-  //   index +=1
-  //   console.log(arr[(index+1) % program.length])
-  // },2000)
+  setInterval(()=>{
+    arr.map((v,i)=> program[(i+1)%program.length].style.left=v)
+    arr.unshift(arr[program.length-1])
+    arr.pop(arr[program.length-1])    
+  },3000)
 },[day])
 
 // 클릭하면 달이 넘어가는 함수

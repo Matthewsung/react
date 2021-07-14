@@ -1,0 +1,47 @@
+.sns{
+  width: 100%;
+  padding: 100px 0;
+  overflow: hidden;
+height: 1000px;
+background: pink;
+}
+.s_title{
+  width: 40%;
+  float: left;
+}
+.s_more{
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  text-align: center;
+  color: #134aa9;
+  font-size: 14px;
+  border: 1px solid #134aa9;
+  border-radius: 50%;
+  position: absolute;
+  left:10%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.s_slide_box{
+  width: 60%;
+  float: right;
+  position: relative;
+
+}
+.s_slide_outer{
+  width: 600%;
+  overflow: hidden;
+}
+.s_slide{
+  width: calc((50% - (20px * 8)) /9);
+  margin-right: 20px;
+  float: left;
+}
+.s_slide:last-child{
+  margin-right: 0;
+}
+.s_slide img{
+  width: 100%;
+}
