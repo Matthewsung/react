@@ -10,7 +10,6 @@ const Culture = ()=>{
     c_slide = document.querySelectorAll('.c_slide')
     c_width = c_slide[0].clientWidth + 20
     arr = Array(c_slide.length).fill('').map((v,i)=> i !==c_slide.length-1?c_width*i +"px":c_width*-1+"px")
-    console.log(arr[c_slide.length-1])
     arr.map((v,i)=> c_slide[i].style.left = v)
 
 
