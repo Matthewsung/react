@@ -19,6 +19,10 @@
 .mid_L{
   width: 70px;
   float: left;
+  transition: transform 0.5s
+}
+.mid_L:hover{
+  transform: translateX(20px);
 }
 .mid_C{
   position: absolute;
@@ -37,6 +41,10 @@
 .mid_R{
   width: 70px;
   float: right;
+  transition: transform 0.5s
+}
+.mid_R:hover{
+  transform: translateX(-20px);
 }
 .c_slide_box{
   width: 100%;
@@ -46,7 +54,10 @@
 .c_slide{
   width: calc( (100% - (20px *3)) / 4);
   margin-right: 20px;
-  float: left;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  transition: left 1s;
 }
 .c_slide:last-child{
   margin-right: 0;

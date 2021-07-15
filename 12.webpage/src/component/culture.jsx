@@ -1,7 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './culture.css'
-const Culture = ()=>{
+import Culture_slide from './culture_slide';
 
+const Culture = ()=>{
+  let c_slide;
+  let c_width;
+  let arr;
+  useEffect(()=>{
+    c_slide = document.querySelectorAll('.c_slide')
+    c_width = c_slide[0].clientWidth + 20
+    arr = Array(c_slide.length).fill('').map((v,i)=> i !==c_slide.length-1?c_width*i +"px":c_width*-1+"px")
+    console.log(arr[c_slide.length-1])
+    arr.map((v,i)=> c_slide[i].style.left = v)
+
+
+
+  },[])
+  const onClickLeft = ()=>{
+    arr.unshift(arr[c_slide.length-1])
+    arr.pop(arr[c_slide.length-1])
+    arr.map((v,i)=> c_slide[i].style.left = v)
+  }
+  const onClickRight = ()=>{
+    arr.push(arr[0])
+    arr.shift(0)
+    arr.map((v,i)=> c_slide[i].style.left = v)
+  }
  return(
    <div className="culture_box">
     <div className="c_title">
@@ -9,7 +33,7 @@ const Culture = ()=>{
       <div>나와 꼭 맞는 생활문화를 검색해 보세요</div>
     </div>
     <div className="c_mid">
-      <div className="mid_L"><img src="img/arrow_left.svg" alt="" /></div>
+      <div className="mid_L" onClick={onClickLeft}><img src="img/arrow_left.svg" alt="" /></div>
       <div className="mid_C">
         <select>
           <option value="구분">구분</option>
@@ -26,66 +50,14 @@ const Culture = ()=>{
           <option value="연극">연극</option>
         </select>
       </div>
-      <div className="mid_R"><img src="img/arrow_right.svg" alt="" /></div>
+      <div className="mid_R" onClick={onClickRight}><img src="img/arrow_right.svg" alt="" /></div>
     </div>
     <div className="c_slide_box">
-      <div className="c_slide">
-        <div className="slide_img">
-          <img src="img/slide_1.png" alt="" />
-          <div className="side_txt">
-            <div>교육</div>
-            <div>안산</div>
-          </div>
-        </div>
-        <div className="slide_txt">
-          <div className="c_slide_title"><span>진행중</span> 2021 HAPPY LIFE HAPPY MINE</div>
-          <div className="c_loc">울타리넘어</div>
-          <div className="c_term">2021.07.01 ~ 2021.12.31</div>
-        </div>
-      </div>
-      <div className="c_slide">
-        <div className="slide_img">
-          <img src="img/slide_1.png" alt="" />
-          <div className="side_txt">
-            <div>교육</div>
-            <div>안산</div>
-          </div>
-        </div>
-        <div className="slide_txt">
-          <div className="c_slide_title"><span>진행중</span> 2021 HAPPY LIFE HAPPY MINE</div>
-          <div className="c_loc">울타리넘어</div>
-          <div className="c_term">2021.07.01 ~ 2021.12.31</div>
-        </div>
-      </div>
-      <div className="c_slide">
-        <div className="slide_img">
-          <img src="img/slide_1.png" alt="" />
-          <div className="side_txt">
-            <div>교육</div>
-            <div>안산</div>
-          </div>
-        </div>
-        <div className="slide_txt">
-          <div className="c_slide_title"><span>진행중</span> 2021 HAPPY LIFE HAPPY MINE</div>
-          <div className="c_loc">울타리넘어</div>
-          <div className="c_term">2021.07.01 ~ 2021.12.31</div>
-        </div>
-      </div>
-    <div className="c_slide">
-        <div className="slide_img">
-          <img src="img/slide_1.png" alt="" />
-          <div className="side_txt">
-            <div>교육</div>
-            <div>안산</div>
-          </div>
-        </div>
-        <div className="slide_txt">
-          <div className="c_slide_title"><span>진행중</span> 2021 HAPPY LIFE HAPPY MINE</div>
-          <div className="c_loc">울타리넘어</div>
-          <div className="c_term">2021.07.01 ~ 2021.12.31</div>
-        </div>
-      </div>
-    
+      <Culture_slide />
+      <Culture_slide />
+      <Culture_slide />
+      <Culture_slide />    
+      <Culture_slide />    
     </div>
     <div className="c_more">더보기</div>
    </div>
