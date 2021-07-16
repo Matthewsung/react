@@ -25,15 +25,7 @@ const Banner = () =>{
           setTimeout(()=>{b_confirm=true},2000)
         }
       }
-    },100)
-      // const interval = setInterval(()=>{
-      //   console.log("///////////////인터벌 시작입니다////////")
-      //   banner[bIndex].style.opacity = bGap;
-      //   setBGap((prevState) => prevState > 0 ? prevState - 0.1 : 1)
-      //   bGap <= 0 ? setBIndex((prevState)=>(prevState +1)%banner.length) : console.log()
-      //   return clearInterval(interval), console.log("///////////////인터벌 끝입니다////////")
-      // },1000)
-      
+    },100)    
   }, [])
   
   return (

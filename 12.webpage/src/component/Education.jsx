@@ -28,16 +28,24 @@ useEffect ( ()=>{
 
 // 클릭하면 달이 넘어가는 함수
   const onClickCalendar = (e)=>{
+    
     if(e.target.innerText === "-"){
-      setMonth((prevState)=>prevState - 1)
+      setMonth((prevState)=>prevState == DATA.getMonth()+1-1?prevState:prevState - 1)
       setTotalDay(Array(new Date(DATA.getFullYear() , month-1 , 0 ).getDate()).fill().map((v,i)=>i+1))
-      
+     console.log(month) 
     }
     else if(e.target.innerText === "+"){
-      setMonth((prevState)=>prevState + 1)
+      setMonth((prevState)=>prevState == DATA.getMonth()+1+1?prevState:prevState + 1)
       setTotalDay(Array(new Date(DATA.getFullYear() , month-1 , 0 ).getDate()).fill().map((v,i)=>i+1))
     }
-    today[day-1].classList.remove('today_act')
+    if(DATA.getMonth()+1 == month){
+      
+      today[day-1].classList.add('today_act')
+    }
+    else{
+      today[day-1].classList.remove('today_act')
+    }
+    console.log(month,DATA.getMonth()+1 )
   }
 
   
