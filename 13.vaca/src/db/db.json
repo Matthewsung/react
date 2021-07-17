@@ -1,0 +1,44 @@
+{
+  "day":[
+    {"id": 1, "day":1},
+    {"id": 2, "day":2},
+    {"id": 3, "day":3}
+  ],
+  "words":[
+    {
+      "id":1,
+      "day": 1,
+      "eng":"table",
+      "kor":"책상",
+      "isDone":false
+    },
+    {
+      "id":2,
+      "day": 1,
+      "eng":"table",
+      "kor":"책상",
+      "isDone":false
+    },
+    {
+      "id":3,
+      "day": 2,
+      "eng":"table",
+      "kor":"책상",
+      "isDone":false
+    },
+    {
+      "id":4,
+      "day": 3,
+      "eng":"table",
+      "kor":"책상",
+      "isDone":false
+    },
+    {
+      "id":5,
+      "day": 3,
+      "eng":"table",
+      "kor":"책상",
+      "isDone":false
+    }
+  ]
+}
