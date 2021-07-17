@@ -22,7 +22,7 @@ const Culture = ()=>{
   }
   const onClickRight = ()=>{
     arr.push(arr[0])
-    arr.shift(0)
+    arr.shift(0) 
     arr.map((v,i)=> c_slide[i].style.left = v)
   }
  return(
