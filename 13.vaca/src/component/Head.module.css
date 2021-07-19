@@ -1,4 +1,39 @@
 .title{
   text-align: center;
   color: blue;
+  margin: 100px;
+}
+.h_btn_box{
+  text-align: center;
+}
+.h_btn{
+  padding: 10px 20px;
+  outline: none;
+  background: none;
+  margin-right: 30px;
+  margin-bottom: 50px;
+  border: none;
+  box-shadow: 0 0 0 1px ;
+  cursor: pointer;
+
+}
+.h_btn:last-child{
+  margin-right: 0;
+}
+
+
+
+.menu_ul{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.menu_li{
+  padding: 10px 20px;
+  margin-right: 50px;
+  background: #448aff;
+  border-radius: 13px;
+}
+.menu_li:last-child{
+  margin-right: 0;
 }

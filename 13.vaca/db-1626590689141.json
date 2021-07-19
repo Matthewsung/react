@@ -17,30 +17,37 @@
     {
       "id": 1,
       "day": 1,
+      "eng": "table",
+      "kor": "책상",
+      "isDone": true
+    },
+    {
+      "id": 2,
+      "day": 1,
+      "eng": "chair",
+      "kor": "의자",
+      "isDone": false
+    },
+    {
+      "id": 3,
+      "day": 2,
       "eng": "computer",
       "kor": "컴퓨터",
       "isDone": false
     },
     {
-      "id": 2,
-      "day": 2,
+      "id": 4,
+      "day": 3,
       "eng": "mouse",
       "kor": "마우스",
-      "isDone": true
+      "isDone": false
     },
     {
+      "id": 5,
       "day": 3,
       "eng": "coffee",
       "kor": "커피",
-      "isDone": false,
-      "id": 3
-    },
-    {
-      "day": 1,
-      "eng": "cup",
-      "kor": "컵",
-      "isDone": false,
-      "id": 4
+      "isDone": false
     }
   ]
 }

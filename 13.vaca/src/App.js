@@ -1,11 +1,33 @@
 import './App.css';
 import Head from './component/Head'
+import DayList from './component/DayList';
+import Day from './component/Day';
 import db from './db/db.json'
+
+import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import CreateWord from './component/CreateWord';
+import CreateDay from './component/CreateDay';
 function App() {
   return (
-    <div className="App">
-      <Head db={db}/>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Head />
+        <Switch>
+          <Route exact path="/">
+            <DayList/>
+          </Route>
+          <Route exact path="/day/:day">
+            <Day/>
+          </Route>
+          <Route exact path="/create-words">
+            <CreateWord/>
+          </Route>
+          <Route exact path="/create-days">
+            <CreateDay/>
+          </Route>
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 
