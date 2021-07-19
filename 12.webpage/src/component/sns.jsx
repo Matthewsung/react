@@ -12,7 +12,7 @@ const Sns = ()=>{
     s_interval = setInterval(()=>{
       if(s_check){
         s_slide_outer.style.left = s_slide_left + "px"
-        if(s_slide_left >= -(Number(s_slide.style.marginRight.split("px")[0])+ s_slide.clientWidth)*(snsSlide.length-4)){
+        if(s_slide_left >= -(Number(s_slide.style.marginRight.split("px")[0]) + s_slide.clientWidth) * (snsSlide.length - 4)){
           s_slide_left -= Number(s_slide.style.marginRight.split("px")[0])+ s_slide.clientWidth
         }
         else{

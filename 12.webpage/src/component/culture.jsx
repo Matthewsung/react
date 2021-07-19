@@ -1,17 +1,58 @@
 import React, { useEffect } from 'react';
 import './culture.css'
 import Culture_slide from './culture_slide';
-
+const url=[
+  {
+    id:1,
+    url:"img/slide_1.png",
+    side1:"교육",
+    side2:"안산",
+    title: "2021 HAPPY LIFE HAPPY MINE ",
+    loc:"울타리넘어",
+    date:"2021.07.01 ~ 2021.12.31"
+  },
+  {
+    id:2,
+    url:"img/slide_2.jpg",
+    side1:"기획",
+    side2:"성남",
+    title: "은밀한 글쓰기",
+    loc:"그림책NORi",
+    date:"2021.07.05 ~ 2021.12.31"
+  },
+  {
+    id:3,
+    url:"img/slide_3.jpg",
+    side1:"공연/전시",
+    side2:"군포",
+    title: "2021 군포아트마켓 수공예품 전시",
+    loc:"군포시생활문화센터 커뮤니티갤러리홀",
+    date:"2021.07.14 ~ 2021.07.24"
+  },
+  {
+    id:4,
+    url:"img/slide_4.jpg",
+    side1:"기획",
+    side2:"의왕",
+    title: "가족의 모양",
+    loc:"커뮤니티 공간 들락날락(이놀 유한책임회사)",
+    date:"2021.07.01 ~ 2021.07.22"
+  }
+]
 const Culture = ()=>{
+  let culture_slide_length = Array(3).fill(0);
   let c_slide;
   let c_width;
   let arr;
+  let count = 0;
+
   useEffect(()=>{
     c_slide = document.querySelectorAll('.c_slide')
     c_width = c_slide[0].clientWidth + 20
-    arr = Array(c_slide.length).fill('').map((v,i)=> i !==c_slide.length-1?c_width*i +"px":c_width*-1+"px")
+    arr = Array(c_slide.length).fill('').map((v,i)=> c_width*i +"px" )
     arr.map((v,i)=> c_slide[i].style.left = v)
-
+    c_slide[0].style.left = 0
+    
   },[])
   const onClickLeft = ()=>{
     arr.unshift(arr[c_slide.length-1]) 
@@ -23,6 +64,7 @@ const Culture = ()=>{
     arr.shift(0) 
     arr.map((v,i)=> c_slide[i].style.left = v)
   }
+
  return(
    <div className="culture_box">
     <div className="c_title">
@@ -50,11 +92,7 @@ const Culture = ()=>{
       <div className="mid_R" onClick={onClickRight}><img src="img/arrow_right.svg" alt="" /></div>
     </div>
     <div className="c_slide_box">
-      <Culture_slide />
-      <Culture_slide />
-      <Culture_slide />
-      <Culture_slide />    
-      <Culture_slide />    
+      {culture_slide_length.map((v,i)=> <Culture_slide key={i} index={count++} url={url}/>)}
     </div>
     <div className="c_more">더보기</div>
    </div>

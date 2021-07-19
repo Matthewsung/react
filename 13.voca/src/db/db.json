@@ -23,16 +23,13 @@
     {
       "day": 6,
       "id": 6
+    },
+    {
+      "day": 7,
+      "id": 7
     }
   ],
   "words": [
-    {
-      "id": 1,
-      "day": 1,
-      "eng": "computer",
-      "kor": "컴퓨터",
-      "isDone": false
-    },
     {
       "id": 2,
       "day": 2,
@@ -53,6 +50,20 @@
       "kor": "컵",
       "isDone": false,
       "id": 4
+    },
+    {
+      "day": 4,
+      "eng": "rain",
+      "kor": "비",
+      "isDone": false,
+      "id": 5
+    },
+    {
+      "day": 5,
+      "eng": "hi",
+      "kor": "안녕",
+      "isDone": true,
+      "id": 6
     }
   ]
 }
