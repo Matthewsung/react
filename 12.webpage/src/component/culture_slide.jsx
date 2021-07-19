@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react'
 
-const Culture_slide = ({url,})=>{
+const Culture_slide = ({url,index})=>{
 
-  const Culture_slide_item=({url,})=>{
+  const Culture_slide_item=({url,index})=>{
     useEffect(()=>{
       const slide_img = document.querySelectorAll('.slide_img')
-      slide_img[url.id-1 ].style.background = `url(${url.url}) no-repeat center / cover`
-      console.log(slide_img.length, url.id-1 ,)
+      slide_img[index].style.background = `url(${url.url}) no-repeat center / cover`
+      
     },[])
+    
     return(
       <div className="c_slide" style={{left:"100%"}}>
         <div className="slide_img">
@@ -26,7 +27,7 @@ const Culture_slide = ({url,})=>{
   }
   return(
     <>
-      {url.map((v,i)=> <Culture_slide_item key={v.id} url={url[i]}/>)}
+      <Culture_slide_item  index={index} url={url[index%url.length]}/>
     </>
   )
 }

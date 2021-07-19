@@ -59,7 +59,6 @@
   position: absolute;
   left: 100%;
   top: 0;
-  transition: left 1s;
 }
 .c_slide:last-child{
   margin-right: 0;
