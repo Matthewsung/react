@@ -3,13 +3,11 @@ import styles from './Day.module.css'
 import Fetch from '../hooks/Fetch'
 import { useHistory } from 'react-router'
 const CreateWord = ()=>{
-  const day = Fetch("http://localhost:8000/words")
+  const day = Fetch("http://localhost:8000/day")
+  console.log(day)
   const history = useHistory()
   const onSubmitForm = (e)=>{
     e.preventDefault()
-    console.log(refEng.current.value)
-    console.log(refKor.current.value)
-    console.log(refDay.current.value)
     fetch("http://localhost:8000/words/",{
       method:"POST",
       headers:{

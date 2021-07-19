@@ -16,14 +16,14 @@ function App() {
           <Route exact path="/">
             <DayList/>
           </Route>
-          <Route exact path="/day/:day">
+          <Route  path="/day/:day">
             <Day/>
           </Route>
-          <Route exact path="/create-words">
+          <Route  path="/create-words">
             <CreateWord/>
           </Route>
-          <Route exact path="/create-days">
-            <CreateDay/>
+          <Route  path="/create-days">
+            <CreateDay />
           </Route>
         </Switch>
       </div>

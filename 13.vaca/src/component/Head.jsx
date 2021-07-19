@@ -12,7 +12,9 @@ const Head = ()=>{
         <Link to="/create-words">
           <button className={styles.h_btn}>단어 추가</button>
         </Link>
-        <button className={styles.h_btn}>Day 추가</button>
+        <Link to="/create-days">
+          <button className={styles.h_btn}>Day 추가</button>
+        </Link>
       </div>
     </>
   )

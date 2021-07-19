@@ -12,11 +12,9 @@ const Culture = ()=>{
     arr = Array(c_slide.length).fill('').map((v,i)=> i !==c_slide.length-1?c_width*i +"px":c_width*-1+"px")
     arr.map((v,i)=> c_slide[i].style.left = v)
 
-
-
   },[])
   const onClickLeft = ()=>{
-    arr.unshift(arr[c_slide.length-1])
+    arr.unshift(arr[c_slide.length-1]) 
     arr.pop(arr[c_slide.length-1])
     arr.map((v,i)=> c_slide[i].style.left = v)
   }
