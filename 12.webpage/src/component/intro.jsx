@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './intro.css'
 const Intro = ()=>{
   const [space, setSpace] = useState('img/space_01.png')
 const onclickSpace = (e)=>{
+  const intro_row = document.querySelectorAll('.intro_row')
   if(e.target.hasAttribute('data-src')){
+    Array(intro_row.length).fill().map((v,i)=> intro_row[i].classList.remove('intro_row_act'))
+    e.target.classList.add('intro_row_act')
     setSpace(e.target.getAttribute('data-src'))
   }
 }

@@ -1,6 +1,57 @@
 import React, { useState, useEffect ,  } from 'react';
 import './education.css'
 import Program from './program'
+const data = [
+  {
+    id:1,
+    loc:'하남',
+    title:'나룰 수채화 드로잉',
+    detail:'하남문화예술회관 체험실',
+    date:'2021.01.31 ~ 2021.12.31',
+    url:'img/slide1.png'
+  },
+  {
+    id:2,
+    loc:'하남',
+    title:'기타사랑',
+    detail:'하남문화예술회관 강의실',
+    date:'2021.01.01 ~ 2021.12.31',
+    url:'img/slide2.png'
+  },
+  {
+    id:3,
+    loc:'하남',
+    title:'미사누그 드로잉',
+    detail:'하남문화예술회관 체험실',
+    date:'2021.01.31 ~ 2021.12.31',
+    url:'img/slide3.png'
+  },
+  {
+    id:4,
+    loc:'하남',
+    title:'우쿨LOVE',
+    detail:'하남문화예술회관 연습실',
+    date:'2021.01.01 ~ 2021.12.31',
+    url:'img/slide4.png'
+  },
+  {
+    id:5,
+    loc:'하남',
+    title:'행복한 합창단',
+    detail:'하남문화예술회관 연습실',
+    date:'2021.01.01 ~ 2021.12.31',
+    url:'img/slide5.png'
+  },
+  {
+    id:6,
+    loc:'하남',
+    title:'벨칸토성악 동호회',
+    detail:'하남문화예술회관 연습실',
+    date:'2021.01.31 ~ 2021.12.31',
+    url:'img/slide6.png'
+  },
+  
+]
 const Education = () =>{
   const DATA = new Date;
   const [year, setYear]=useState(DATA.getFullYear())
@@ -8,22 +59,26 @@ const Education = () =>{
   const [totalDay,setTotalDay] = useState(Array(new Date(DATA.getFullYear() , month , 0 ).getDate()).fill().map((v,i)=>i+1))
   const [day, setDay] = useState(DATA.getDate())
   const today = document.getElementsByClassName('today')
-  const [program_arr, setProgram] =useState(Array(6).fill(''))
-
+  let program_arr = Array(data.length*3).fill('')
+  let p_chk = true
 useEffect ( ()=>{
   const m_date = document.querySelector('.m_date')
   const program = document.getElementsByClassName('program')
-  const p_width = program[0].clientWidth
+  const p_width = program[0].clientWidth + parseInt(program[0].style.marginRight)
   today[day-1].classList.add('today_act')
-  const arr = [(p_width+20)*0 + "px", (p_width+20)*1 + "px", (p_width+20)*2 + "px", (p_width+20)*3 + "px", (p_width+20)*4 + "px",(p_width+20)*5 + "px"]
+  
+  const arr = Array(data.length*3).fill(-p_width*data.length).map((v,i)=> v + p_width*i +"px")
+
   arr.map((v,i)=> program[i].style.left=v)
-
-
-  setInterval(()=>{
-    arr.map((v,i)=> program[(i+1)%program.length].style.left=v)
-    arr.unshift(arr[program.length-1])
-    arr.pop(arr[program.length-1])    
-  },3000)
+  let p_interval;
+  p_interval = setInterval(()=>{
+    if(p_chk){
+      Array(data.length*3).fill('').map((v,i)=> parseInt(program[i].style.left) === -p_width*data.length ? program[i].style.transition="none" : program[i].style.transition="all 1s") 
+      arr.map((v,i)=> program[(i+1)%program.length].style.left=v)
+      arr.unshift(arr[program.length-1])
+      arr.pop(arr[program.length-1])    
+    }
+  },3000 )
 },[day])
 
 // 클릭하면 달이 넘어가는 함수
@@ -32,7 +87,6 @@ useEffect ( ()=>{
     if(e.target.innerText === "-"){
       setMonth((prevState)=>prevState == DATA.getMonth()+1-1?prevState:prevState - 1)
       setTotalDay(Array(new Date(DATA.getFullYear() , month-1 , 0 ).getDate()).fill().map((v,i)=>i+1))
-     console.log(month) 
     }
     else if(e.target.innerText === "+"){
       setMonth((prevState)=>prevState == DATA.getMonth()+1+1?prevState:prevState + 1)
@@ -45,11 +99,16 @@ useEffect ( ()=>{
     else{
       today[day-1].classList.remove('today_act')
     }
-    console.log(month,DATA.getMonth()+1 )
   }
-
-  
-
+const onMouseEnterPbox = (e)=>{
+  p_chk = false
+  e.target.closest('.program').querySelector('.p_text').style.display="block"
+  console.log()
+}
+const onMouseLeavePbox = (e)=>{
+  e.target.closest('.program').querySelector('.p_text').style.display="none"
+  p_chk = true
+}
   return (
     <>
     <div className="education">
@@ -72,8 +131,8 @@ useEffect ( ()=>{
             {totalDay.map((v,i)=> <div key={i+1}className="today">{i+1}</div>)}
           </div>
         </div>
-        <div className="program_box">
-          {program_arr.map((v,i)=> <Program key={i+v}/>)}
+        <div className="program_box" >
+          {program_arr.map((v,i)=> <Program key={i+v} index={i} data={data[i % data.length]} onMouseEnter={onMouseEnterPbox} onMouseLeave={onMouseLeavePbox} />)}
         </div>
       </div>
     </div>

@@ -50,14 +50,14 @@ const Culture = ()=>{
     c_width = c_slide[0].clientWidth + 20
     arr = Array(c_slide.length).fill(-(c_width*url.length)).map((v,i)=> v + (c_width*i) + "px")
     arr.map((v,i)=> c_slide[i].style.left = v)
-    console.log(-(c_width*url.length)+c_width*(url.length*3 - 1))    
   },[])
 
   const onClickLeft = ()=>{
-    Array(c_slide.length).fill().map((v,i)=>c_slide[i].style.left === -(c_width*url.length)+"px" ? c_slide[i].style.transition="none" : c_slide[i].style.transition= "left 1s")
+    Array( c_slide.length ).fill().map((v,i) => c_slide[i].style.left === -(c_width*url.length)+"px" ? c_slide[i].style.transition="none" : c_slide[i].style.transition= "left 1s")
     arr.unshift(arr[c_slide.length-1]) 
-    arr.pop(arr[c_slide.length-1])
+    arr.pop(arr[c_slide.length-1]) 
     arr.map((v,i)=> c_slide[i].style.left = v)
+    console.log(arr)
   }
   const onClickRight = ()=>{
     Array(c_slide.length).fill().map((v,i)=>c_slide[i].style.left === -(c_width*url.length)+c_width*(url.length*3 - 1)+"px" ? c_slide[i].style.transition="none" : c_slide[i].style.transition= "left 1s")
@@ -94,7 +94,6 @@ const Culture = ()=>{
     </div>
     <div className="c_slide_box">
       {arr.map((v,i)=> <Culture_slide key={i} index={i} url={url}/>)}
-      {/* <Culture_slide url={url}/> */}
     </div>
     <div className="c_more">더보기</div>
    </div>

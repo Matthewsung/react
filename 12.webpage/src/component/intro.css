@@ -29,6 +29,10 @@
   margin: 30px 5px 0 0 ;
   transition: all 0.2s;
 }
+.intro_row_act{
+  color: #fff;
+  background: #134aa9;
+}
 .intro_row:hover{
   color: #fff;
   background: #134aa9;
