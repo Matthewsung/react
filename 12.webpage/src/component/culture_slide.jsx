@@ -6,7 +6,6 @@ const Culture_slide = ({url,index})=>{
     useEffect(()=>{
       const slide_img = document.querySelectorAll('.slide_img')
       slide_img[index].style.background = `url(${url.url}) no-repeat center / cover`
-      console.log(index)
     },[])
     
     return(

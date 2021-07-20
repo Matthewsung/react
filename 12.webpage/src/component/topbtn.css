@@ -9,5 +9,6 @@
   color: #fff;
   position: fixed;
   right: 5%;
-  bottom:5%
+  bottom:5%;
+  cursor: pointer;
 }
