@@ -1,15 +1,18 @@
 import React, {  } from 'react';
 import './App.css';
-import GetApi from './GetApi';
+import GetApi from './component/GetApi';
 import Head from './component/Head'
-
+import {Route,BrowserRouter,Switch} from 'react-router-dom'
 const App= ()=>{
   
     return (
-      <>
-      <Head />
-      <GetApi />
-      </>
+      <BrowserRouter>
+        <Head />
+        <Route path='/'>
+          <GetApi />
+        </Route>
+        
+      </BrowserRouter>
       );
   
 }
