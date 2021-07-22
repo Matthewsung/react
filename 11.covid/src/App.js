@@ -1,16 +1,25 @@
 import React, {  } from 'react';
 import './App.css';
-import GetApi from './component/GetApi';
+import Main from './component/Main';
 import Head from './component/Head'
+import Total from './component/Total';
+import Detail from './component/Detail'
 import {Route,BrowserRouter,Switch} from 'react-router-dom'
 const App= ()=>{
   
     return (
       <BrowserRouter>
         <Head />
-        <Route path='/'>
-          <GetApi />
-        </Route>
+        <Total />
+
+        <Switch>
+          <Route exact path='/'>
+            <Main />
+          </Route>
+          <Route path='/:country'>
+            <Detail />
+          </Route>
+        </Switch>
         
       </BrowserRouter>
       );

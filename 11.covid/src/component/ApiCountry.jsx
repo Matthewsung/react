@@ -1,8 +1,7 @@
 import {Link} from 'react-router-dom'
-const ApiCountry = ({country, index})=>{
-
-  return(
-    
+const ApiCountry = ({country})=>{
+  
+  return(    
     <li className='country_li' >
       <Link to={`/${country.Country}`}>
        {country.Country}
