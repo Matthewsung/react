@@ -46,6 +46,25 @@ button{
 
   padding: 10px 15px;
   margin: 5px;
-  background: #e7b9ff;
+  background: #7c4dff;
+  color: #fff;
   float: left;
+}
+/* Detail */
+table{
+  border-collapse: collapse;
+  margin:100px auto;
+}
+.d_tr{
+  background: #b388ff;
+  color: #fff;
+  font-size: 35px;
+}
+.d_tr:first-child{
+  background: #e7b9ff  ;
+}
+.d_td {
+  padding: 5px 10px;
+  text-align: center ;
+  border: 1px solid;
 }

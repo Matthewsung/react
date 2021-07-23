@@ -16,7 +16,7 @@ const App= ()=>{
           <Route exact path='/'>
             <Main />
           </Route>
-          <Route path='/:country'>
+          <Route path='/:country' >
             <Detail />
           </Route>
         </Switch>
