@@ -58,7 +58,7 @@ section{
 }
 #sec_1_cir1{
   position: absolute;
-  left: 50%;
+  left: -30%;
   top: -50%;
   animation: move1 5s infinite;
 }
@@ -133,7 +133,6 @@ section{
 #sec_2_cir2,
 #sec_2_cir3{
     position: absolute;
-    /* transition: all 0.5s; */
 }
 #sec_2_cir1{
     left: 4%;

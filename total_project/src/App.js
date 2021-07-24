@@ -5,9 +5,9 @@ import Footer from './component/Footer'
 function App() {
   return (
     <div className="wrap">
-      <Header />
+      {/* <Header /> */}
       <Main />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

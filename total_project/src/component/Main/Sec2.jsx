@@ -1,10 +1,33 @@
 import React from 'react'
+import CanvasCircle from './CanvasCircle'
+const canvasOption=[
+    {
+      id:1,
+      divId : "sec_2_cir1",
+      width:50,
+      end : 2*Math.PI,
+      color: "#bed8ef"
+    },
+    {
+      id:2,
+      divId : "sec_2_cir2",
+      width:150,
+      end : 2*Math.PI,
+      color: "#053f73"
+    },
+    {
+      id:3,
+      divId : "sec_2_cir3",
+      width:700,
+      end : 2*Math.PI,
+      color: "#bed8ef"
+    },
+  ]
 const Sec2 = ()=>{
   return(
     <section className="sec_2">
-        <canvas width="50px" height="50px" className="sec_2_cir" id="sec_2_cir1"></canvas>
-        <canvas width="150px" height="150px" className="sec_2_cir" id="sec_2_cir2"></canvas>
-        <canvas width="700px" height="700px"  id="sec_2_cir3"></canvas>
+        {Array(canvasOption.length).fill().map( (v,i) => <CanvasCircle key = {canvasOption[i].id} option = {canvasOption[i]} />)}
+        
         <div className="w_1440">
             <div className="basic_info">
                 <div className="info_img">
