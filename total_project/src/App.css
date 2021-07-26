@@ -362,26 +362,26 @@ section{
   float: left;
   position: relative;
   overflow: hidden;
-  
+  transform: scale(0);
+  transition: all 1s;
 }
 .desk{
   width: 800px;
   position: absolute;
   left: 50%;
   top: 10%;
-  transform: translateX(-50%) scale(0);
-  transition: transform 1s;
+  transform: translateX(-50%);
 }
 .desk img{
   width: 100%;
 }
 .inner_img {
-  width: 725px;
+  width: 736px;
   height: 403px;
-  background-position: top;
+  background-position: top left;
   position: absolute;
-  left: 35px;
-  top: 33px;
+  left: 32px;
+  top: 32px;
   overflow: hidden;
 }
 .inner_img img{
@@ -392,33 +392,21 @@ section{
 
 .tablet{
   width: 200px;
-  height: 260px;
+  height: 270px;
   position: absolute;
   left: 60%;
   top: 55%;
-  transform: translateX(180%);
-  transition: transform 0.7s;
 }
-.sec_3 .tablet{
-  /* background: url(../img/baraboda_main_768.png) no-repeat center 23px / cover; */
-  background-size: 170px;
-}
+
 .tablet img{
   width: 100%;
 }
 .phone{
   width: 90px;
-  height: 130px;
+  height: 175px;
   position: absolute;
   left: 78%;
-  top: 70%;
-  transform: translateX(220%);
-  transition: transform 0.7s;
-}
-.sec_3 .phone{
-  /* background: url(../img/baraboda_main.png) no-repeat center 12px / cover; */
-  background-size: 70px;
-
+  top: 66%;
 }
 
 .phone img{
@@ -446,7 +434,7 @@ section{
   margin: 10px 0;
 }
 .c_goToWeb{
-  width: 100%;
+  width: 45%;
   height: 60px;
   font-size: 23px;
   font-weight: 500;
@@ -456,8 +444,12 @@ section{
   outline: none;
 
   background: none;
-  margin-top: 100px;
+  margin: 100px 30px 0 0;
   cursor: pointer;
+  float: left;
+}
+.c_goToWeb:last-child{
+  margin-right: 0;
 }
 /* Main sec4 */
 
@@ -500,32 +492,29 @@ section{
   70%{top: 85%;}
   100%{top: 80%;}
 }
-.sec_4 .tablet{
-  /* background: url(../img/drg_main_768.png) no-repeat center 23px / cover; */
-  background-size: 170px;
-}
-.sec_4 .phone{
-  /* background: url(../img/drg_main_420.png) no-repeat center 12px / cover; */
-  background-size: 70px;
-
-}
 /* Footer */
 .footer{
   width: 100%;
-  height: 200px;
+  height: 390px;
   padding: 30px 0 ;
   color: #053f73;
   background: #bed8ef;
-  font-size: 18px;
-  text-align: right;
+  text-align: center;
   
   box-shadow: 0 0 3px 0;
 }
-.name{
-  font-size: 35px;
+.f_item {
+  width: calc((100% - (20px * 3) )/ 4);
+  height: 330px;
+  margin-right: 20px;
+  padding:10px 20px;
+  font-size: 25px;
+  background: #fff;
+  border-radius: 50%;
+  float: left;
 }
-.phone_number{
-  margin: 15px 0 5px;
+.f_item:last-child{
+  margin-right: 0;
 }
 .phone_number span{
   transform: rotate(20deg);

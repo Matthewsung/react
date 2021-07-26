@@ -10,7 +10,7 @@ const Main = ()=>{
       <Sec1 />
       <Sec2 />
       <Sec3 />
-      {/*<Sec4 />  */}
+      <Sec4 /> 
 
     </>
   )

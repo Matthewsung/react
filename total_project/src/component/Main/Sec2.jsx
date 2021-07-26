@@ -142,8 +142,8 @@ const Sec2 = ()=>{
                                 <td>jooyongs1@gmail.com</td>
                             </tr>
                             <tr>
-                                <td>웹사이트</td>
-                                <td><a href="jys89.dothome.com">jys89.dothome.com</a></td>
+                                <td>Github</td>
+                                <td><a href="jys89.dothome.com">https://github.com/Matthewsung</a></td>
                             </tr>
                         </tbody>
                     </table>

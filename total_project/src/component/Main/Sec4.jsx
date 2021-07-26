@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useRef,useEffect} from 'react'
 import CanvasCircle from './CanvasCircle';
 const canvasOption=[
     {
@@ -24,11 +24,28 @@ const canvasOption=[
     },
   ]
 const Sec4 = ()=>{
+  const Sec4Ref = useRef()
+  const ShowProject = ()=>{
+    const sec_4 = document.querySelector('.sec_4')
+    const sec_4Top = sec_4.getBoundingClientRect().top;
+    const sec_4Height = sec_4.getBoundingClientRect().height;
+    //이미지 나오는 animation
+    if(sec_4Top - (sec_4Height * 0.3) <= 0){
+        Sec4Ref.current.style.transform = "scale(1)"
+    }
+  }
+  useEffect(()=>{
+    window.addEventListener('scroll',ShowProject)
+    const tablet = document.querySelector('.sec_4 .tablet')
+    const phone = document.querySelector('.sec_4 .phone')
+    tablet.style.background = " url(../img/drg_main_768.png) no-repeat center 23px / cover"
+    phone.style.background = "url(../img/drg_main_420.png) no-repeat center 5px / cover"
+  },[])
   return(
-    <section className="sec_4">
+    <section className="sec_4" >
          {Array(canvasOption.length).fill().map( (v,i) => <CanvasCircle key = {canvasOption[i].id} option = {canvasOption[i]} />)}
         <div className="w_1440">
-            <div className="container_L">
+            <div className="container_L" ref={Sec4Ref}>
                 <div className="desk">
                     <img src="img/r_desk.png" alt=""/>
                     <div className="inner_img">
@@ -47,7 +64,8 @@ const Sec4 = ()=>{
                 <div className="c_content"><p className="c_title">참여도</p> 100%</div>
                 <div className="c_content"><p className="c_title">기간</p> 5일</div>
                 <div className="c_content"><p className="c_title">tool</p> HTML / CSS / Javascript / Jquery</div>
-                <a href="http://jys2.dothome.co.kr/" target="_blank"><input type="button" value="웹사이트 바로가기" className="c_goToWeb"/></a>
+                <input type="button" value="웹사이트 바로가기" className="c_goToWeb"/>
+                <input type="button" value="Github Code 보기" className="c_goToWeb"/>
             </div>
         </div>
     </section>
