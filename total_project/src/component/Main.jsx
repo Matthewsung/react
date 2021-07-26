@@ -8,9 +8,9 @@ const Main = ()=>{
   return(
     <>
       <Sec1 />
-      {/* <Sec2 />
+      <Sec2 />
       <Sec3 />
-      <Sec4 />  */}
+      {/*<Sec4 />  */}
 
     </>
   )

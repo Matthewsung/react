@@ -40,14 +40,16 @@ const Sec1 = ()=>{
       secP.style.opacity = 1
       setSecTxt(SecTxtOption[index % SecTxtOption.length])
       index++
-    },2000)
+      setTimeout(()=>{
+        secP.style.opacity = 0
+      },1000)
+    },2000,1000)
     
   }, [])
   return(
     <section className="sec_1">
         {Array(canvasOption.length).fill().map( (v,i) => <CanvasCircle key = {canvasOption[i].id} option = {canvasOption[i]} />)}
         <div className="sec_1_txt">안녕하세요<p>{secTxt}</p>개발자 성주영입니다</div>
-      {/* <div className="sec_1_c_img"></div> */}
     </section>
   )
 }

@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import CanvasCircle from './CanvasCircle'
+import CanvasPercent from './CanvasPercent';
 const canvasOption=[
     {
       id:1,
@@ -23,7 +24,85 @@ const canvasOption=[
       color: "#bed8ef"
     },
   ]
+const percentOption=[
+    {
+        id:1,
+        url:"img/html.png",
+        alt:'포토샵',
+        score : "90"
+    },
+    {
+        id:2,
+        url:"img/css.png",
+        alt:'포토샵',
+        score : "90"
+    },
+    {
+        id:3,
+        url:"img/js.png",
+        alt:'포토샵',
+        score : "85"
+    },
+    {
+        id:4,
+        url:"img/jquery.png",
+        alt:'포토샵',
+        score : "90"
+    },
+    {
+        id:5,
+        url:"img/php.png",
+        alt:'포토샵',
+        score : "70"
+    },
+    {
+        id:6,
+        url:"img/react.png",
+        alt:'포토샵',
+        score : "90"
+    },
+    {
+        id:7,
+        url:"img/photoshop.png",
+        alt:'포토샵',
+        score : "80"
+    },
+    {
+        id:8,
+        url:"img/illustrator.png",
+        alt:'포토샵',
+        score : "80"
+    },
+]
+
 const Sec2 = ()=>{
+    const [isShow,setIsShow]= useState(false)
+    const ScrollEvent = ()=>{
+        const sec_2 = document.querySelector('.sec_2')
+        const sec_2Top = sec_2.getBoundingClientRect().top;
+        const sec_2Height = sec_2.getBoundingClientRect().height;
+        //이미지 나오는 animation
+        if(sec_2Top - (sec_2Height * 0.2) <= 0){
+            const infoPan = document.querySelector('.info_pan')
+            const infoOuterCir = document.querySelector('.info_outer_cir')
+            const infoInnerImgr = document.querySelector('.info_inner_img')
+            infoPan.style.animation = "back_pan 1s forwards"
+            infoOuterCir.style.animation = "circle_big 0.25s 0.75s forwards"
+            infoInnerImgr.style.animation = "img_up 0.3s 1s forwards"
+            // 퍼센트 차는 
+            setIsShow(true)
+        }
+    }
+    const Makeement = ()=>{
+       return Array(percentOption.length).fill().map((v,i)=><CanvasPercent key={percentOption[i].id} percentOption={percentOption[i]}/>)
+    }
+
+    useEffect(()=>{
+        window.addEventListener('scroll',ScrollEvent)
+    },[])
+
+
+
   return(
     <section className="sec_2">
         {Array(canvasOption.length).fill().map( (v,i) => <CanvasCircle key = {canvasOption[i].id} option = {canvasOption[i]} />)}
@@ -69,69 +148,7 @@ const Sec2 = ()=>{
                         </tbody>
                     </table>
                     <div className="info_icando">
-                        <div className="work_item">
-                            <div className="item_img">
-                                <img src="img/html.png" alt="포토샵"/>
-                            </div>
-                            <div className="item_score_box">
-                                <canvas id="item_score_1" width="300px" height="40px"></canvas>
-                                <p className="real_score">90%</p>
-                            </div>
-                        </div>
-                        <div className="work_item">
-                            <div className="item_img">
-                                <img src="img/css.png" alt="포토샵"/>
-                            </div>
-                            <div className="item_score_box">
-                                <canvas id="item_score_2" width="300px" height="40px"></canvas>
-                                <p className="real_score">90%</p>
-                            </div>
-                        </div>
-                        <div className="work_item">
-                            <div className="item_img">
-                                <img src="img/js.png" alt="포토샵"/>
-                            </div>
-                            <div className="item_score_box">
-                                <canvas id="item_score_3" width="300px" height="40px"></canvas>
-                                <p className="real_score">85%</p>
-                            </div>
-                        </div>
-                        <div className="work_item">
-                            <div className="item_img">
-                                <img src="img/jquery.png" alt="포토샵"/>
-                            </div>
-                            <div className="item_score_box">
-                                <canvas id="item_score_4" width="300px" height="40px"></canvas>
-                                <p className="real_score">90%</p>
-                            </div>
-                        </div>
-                        <div className="work_item">
-                            <div className="item_img">
-                                <img src="img/php.png" alt="포토샵"/>
-                            </div>
-                            <div className="item_score_box">
-                                <canvas id="item_score_5" width="300px" height="40px"></canvas>
-                                <p className="real_score">70%</p>
-                            </div>
-                        </div>
-                        <div className="work_item">
-                            <div className="item_img">
-                                <img src="img/photoshop.png" alt="포토샵"/>
-                            </div>
-                            <div className="item_score_box">
-                                <canvas id="item_score_6" width="300px" height="40px"></canvas>
-                                <p className="real_score">80%</p>
-                            </div>
-                        </div>
-                        <div className="work_item">
-                            <div className="item_img">
-                                <img src="img/illustrator.png" alt="포토샵"/>
-                            </div>
-                            <div className="item_score_box">
-                                <canvas id="item_score_7" width="300px" height="40px"></canvas>
-                                <p className="real_score">80%</p>
-                            </div>
-                        </div>
+                        {isShow?Makeement():''}
                     </div>
                 </div>
                 <div className="info_motto">
