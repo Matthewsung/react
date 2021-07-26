@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import CanvasCircle from './CanvasCircle'
 const canvasOption=[
   {
@@ -30,21 +30,24 @@ const canvasOption=[
     color: "#bed8ef"
   },
 ]
+const SecTxtOption=['책임감있는', '노력하는',]
 const Sec1 = ()=>{
+  const [secTxt, setSecTxt]= useState('')
+  let index = 0;
+  useEffect(() => {
+    const secP = document.querySelector('.sec_1_txt p')
+    setInterval(()=>{
+      secP.style.opacity = 1
+      setSecTxt(SecTxtOption[index % SecTxtOption.length])
+      index++
+    },2000)
+    
+  }, [])
   return(
     <section className="sec_1">
-      <div className="sec_1_L">
-          <div className="sec_1_txt1">
-              텍스트 자리 입니다
-          </div>
-      </div>
-      <div className="sec_1_R">
         {Array(canvasOption.length).fill().map( (v,i) => <CanvasCircle key = {canvasOption[i].id} option = {canvasOption[i]} />)}
-          <div className="sec_1_txt2">
-              텍스트 자리 입니다
-          </div>
-      </div>
-      <div className="sec_1_c_img"></div>
+        <div className="sec_1_txt">안녕하세요<p>{secTxt}</p>개발자 성주영입니다</div>
+      {/* <div className="sec_1_c_img"></div> */}
     </section>
   )
 }
