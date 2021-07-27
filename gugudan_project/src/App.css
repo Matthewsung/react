@@ -1,0 +1,43 @@
+.App{
+  width: 500px;
+  height: 300px;
+  border: 10px solid #35485d;
+  border-radius: 10px;
+  margin: 100px auto;
+  padding: 20px ;
+  box-sizing: border-box;
+}
+.question{
+  font-size: 40px;
+  font-weight: 700;
+  text-align: center;
+  color: #35485d;
+  margin: 20px 0 50px;
+}
+input{
+  width: 75%;
+  height: 50px;
+  font-size: 30px;
+  padding: 5px 20px;
+  margin-right: 20px;
+  border: none;
+  border-bottom: 1px solid;
+  background:inherit;
+  outline: none;
+  box-sizing: border-box;
+}
+button{
+  width: 20%;
+  height: 50px;
+  background: #35485d;
+  color: #fff;
+  font-size: 25px;
+  font-weight: 700;
+  border-radius: 10px;
+}
+.result{
+  font-size: 23px;
+  font-weight: 700;
+  color: #e3342f;
+  margin-top: 30px;
+}

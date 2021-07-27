@@ -1,7 +1,6 @@
-const React = require("react");
-const { useState, useRef } = React;
-
-const Gugudan = () => {
+import React,{useState,useRef} from 'react'
+import { Link } from 'react-router-dom';
+export default function Gugudan() {
   const [first, setFirst] = useState(Math.ceil(Math.random() * 9));
   const [second, setSecond] = useState(Math.ceil(Math.random() * 9));
   const [value, setValue] = useState("");
@@ -16,33 +15,31 @@ const Gugudan = () => {
   const onSubmit = e => {
     e.preventDefault();
     if (parseInt(value) === first * second) {
-      setResult(`${first} * ${second} =
-                  ${first * second} 정답`);
+      setResult(`정답입니다. ${first} X ${second} =
+                  ${first * second} `);
       setFirst(Math.ceil(Math.random() * 9));
       setSecond(Math.ceil(Math.random() * 9));
       setValue("");
     } else {
-      setResult(`${first} * ${second} =
-                  ${first * second}가 정답임. 틀렸음`);
+      setResult(`틀렸습니다. ${first} X ${second} =
+                  ${first * second} 입니다. `);
       setFirst(Math.ceil(Math.random() * 9));
       setSecond(Math.ceil(Math.random() * 9));
       setValue("");
     }
     inputRef.current.focus();
   };
-
   return (
     <>
       <div className="question">
-        {first} * {second} = ?
+        {first} X {second} = 
       </div>
       <form onSubmit={onSubmit}>
-        <input type="number" value={value} onChange={onChange} ref={inputRef} />
+        <input type="text" value={value} onChange={onChange} ref={inputRef} />
         <button>입력</button>
         <div className="result">{result}</div>
       </form>
+      <Link to="/">돌아가기</Link>
     </>
-  );
-};
-
-module.exports = Gugudan;
+  )
+}
