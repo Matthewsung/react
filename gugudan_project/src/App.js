@@ -5,7 +5,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Route exact path="/gugudan">
+        <Route exact path="/">
           <Gugudan />
         </Route>
       </div>
