@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 const Sec3 = ()=>{
   const ShowProject = ()=>{
     const sec_3 = document.querySelector('.sec_3')
@@ -40,8 +41,8 @@ const Sec3 = ()=>{
                 <div className="c_content"><p className="c_title">참여도</p> 100%</div>
                 <div className="c_content"><p className="c_title">기간</p> 6일</div>
                 <div className="c_content"><p className="c_title">tool</p> HTML / CSS / Javascript / Jquery</div>
-                <input type="button" value="웹사이트 바로가기" className="c_goToWeb"/>
-                <input type="button" value="Github Code 보기" className="c_goToWeb"/>
+                <div className="c_goToWeb"><Link to={{pathname:"http://jys89.dothome.co.kr"}} target="_blank">웹사이트 바로가기</Link></div>
+                <div className="c_goToWeb"><Link to={{pathname:"https://github.com/Matthewsung/dr.g"}} target="_blank">Github Code 보기</Link></div>
             </div>
         </div>
     </section>

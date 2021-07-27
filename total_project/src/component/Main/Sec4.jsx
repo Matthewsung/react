@@ -1,5 +1,7 @@
 import React,{useRef,useEffect} from 'react'
+import { Link } from 'react-router-dom';
 import CanvasCircle from './CanvasCircle';
+
 const canvasOption=[
     {
       id:1,
@@ -64,8 +66,10 @@ const Sec4 = ()=>{
                 <div className="c_content"><p className="c_title">참여도</p> 100%</div>
                 <div className="c_content"><p className="c_title">기간</p> 5일</div>
                 <div className="c_content"><p className="c_title">tool</p> HTML / CSS / Javascript / Jquery</div>
-                <input type="button" value="웹사이트 바로가기" className="c_goToWeb"/>
-                <input type="button" value="Github Code 보기" className="c_goToWeb"/>
+                <div className="c_goToWeb" >
+                  <Link to={{pathname:"http://jys2.dothome.co.kr"}} target="_blank">웹사이트 바로가기</Link>
+                  </div>
+                <div className="c_goToWeb"><Link to={{pathname:"https://github.com/Matthewsung/baraboda"}} target="_blank">Github Code 보기</Link></div>
             </div>
         </div>
     </section>

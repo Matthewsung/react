@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import {Link} from 'react-router-dom';
 import CanvasCircle from './CanvasCircle'
 import CanvasPercent from './CanvasPercent';
 const canvasOption=[
@@ -139,11 +140,15 @@ const Sec2 = ()=>{
                             </tr>
                             <tr>
                                 <td>이메일</td>
-                                <td>jooyongs1@gmail.com</td>
+                                <td>
+                                    jooyongs1@gmail.com
+                                </td>
                             </tr>
                             <tr>
                                 <td>Github</td>
-                                <td><a href="jys89.dothome.com">https://github.com/Matthewsung</a></td>
+                                <td>
+                                    <a href="https://github.com/Matthewsung">https://github.com/Matthewsung</a>                                    
+                                </td>
                             </tr>
                         </tbody>
                     </table>
