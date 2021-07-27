@@ -69,7 +69,9 @@ const Sec4 = ()=>{
                 <div className="c_goToWeb" >
                   <Link to={{pathname:"http://jys2.dothome.co.kr"}} target="_blank">웹사이트 바로가기</Link>
                   </div>
-                <div className="c_goToWeb"><Link to={{pathname:"https://github.com/Matthewsung/baraboda"}} target="_blank">Github Code 보기</Link></div>
+                <div className="c_goToWeb">
+                  <Link to={{pathname:"https://github.com/Matthewsung/baraboda"}} target="_blank">Github Code 보기</Link>
+                </div>
             </div>
         </div>
     </section>

@@ -365,6 +365,7 @@ section{
   transform: scale(0);
   transition: all 1s;
 }
+
 .desk{
   width: 800px;
   position: absolute;
@@ -494,26 +495,35 @@ section{
 /* Footer */
 .footer{
   width: 100%;
-  height: 390px;
-  padding: 30px 0 ;
+  padding: 100px 0 ;
   color: #053f73;
   background: #bed8ef;
   text-align: center;
   
   box-shadow: 0 0 3px 0;
 }
-.f_item {
-  width: calc((100% - (20px * 3) )/ 4);
-  height: 330px;
-  margin-right: 20px;
-  padding:10px 20px;
+.contact{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30px;
+
+}
+ .f_item {
+  height: 340px;
+  padding:100px 20px;
   font-size: 25px;
+  font-weight: 700;
+  color: #08196d;
   background: #fff;
   border-radius: 50%;
-  float: left;
+  transition: all 0.5s;
 }
-.f_item:last-child{
-  margin-right: 0;
+.f_item h1{
+  margin-bottom: 10px;
+}
+.f_item:hover {
+  color: #fff;
+  background: #08196d;
 }
 .phone_number span{
   transform: rotate(20deg);
