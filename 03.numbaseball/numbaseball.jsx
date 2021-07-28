@@ -250,7 +250,7 @@ class NumberBaseball extends PureComponent {
     const { result, value, tries } = this.state;
     return (
       <>
-        <h1>{result}</h1>
+        <h1 className="result">{result}</h1>
         <form onSubmit={this.onSubmitForm}>
           <input ref={this.inputRef} maxLength={4} value={value} onChange={this.onChangeInput} />
         </form>

@@ -1,9 +1,9 @@
 import './App.css';
-import NumberBaseball from './component/NumberBaseball';
+import RSP from './component/RSP'
 function App() {
   return (
     <div className="App">
-      <NumberBaseball/>
+      <RSP />
     </div>
   );
 }

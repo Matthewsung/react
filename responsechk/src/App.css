@@ -1,0 +1,39 @@
+*{margin: 0;padding: 0;}
+body{
+  background: #a48cb1;
+}
+.content{
+  width: 500px;
+  height: 500px;
+  margin: 100px auto;
+}
+#screen, #screen2{
+  width: 100%;
+  height: 100%;
+  padding: 200px 0;
+  text-align: center;
+  user-select: none;
+  margin-top: 10px;
+  font-size: 50px;
+  box-sizing: border-box;
+  border-radius: 50%;
+
+}
+#screen.waiting, #screen2.waiting{
+  background: burlywood;
+}
+#screen.ready, #screen2.ready{
+  background: cadetblue;
+  color: white;
+}
+#screen.now, #screen2.now{
+  background: red;
+  color: #fff;
+}
+.text{
+  margin: 10px 0 ;
+
+}
+.result{
+  font-size: 50px;
+}

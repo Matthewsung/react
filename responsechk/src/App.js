@@ -1,9 +1,9 @@
 import './App.css';
-import NumberBaseball from './component/NumberBaseball';
+import ResponseCheckHooks from './component/ResponseCheckHooks'
 function App() {
   return (
     <div className="App">
-      <NumberBaseball/>
+      <ResponseCheckHooks/>
     </div>
   );
 }

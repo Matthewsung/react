@@ -1,0 +1,38 @@
+*{margin: 0 ;padding: 0;}
+.content{
+  width: 500px;
+  margin: 200px auto;
+  padding: 10px ;
+  box-sizing: border-box;
+  box-shadow: 0 0 0 10px ;
+  background:#fff;
+}
+#computer { 
+  width: 277px;
+  height: 340px;
+  background-position: 0 0;
+  margin: 0 auto;
+}
+.btn{
+  width: 30%;
+  height: 50px;
+  margin-right: 20px;
+  outline: none;
+  border: none;
+  background: #35485d;
+  color: #fff;
+  font-size: 25px;
+  font-weight: 700;
+  cursor: pointer;
+}
+#paper{
+  margin-right: 0;
+}
+h1{
+  text-align: center;
+  margin: 10px 0;
+}
+.score{
+  font-size: 50px;
+  text-align: center;
+}

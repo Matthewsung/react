@@ -39,7 +39,6 @@ export default function Gugudan() {
         <button>입력</button>
         <div className="result">{result}</div>
       </form>
-      <Link to="/">돌아가기</Link>
     </>
   )
 }
