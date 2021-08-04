@@ -1,0 +1,38 @@
+.header{
+  margin-bottom: 100px;
+}
+.total_title{
+  padding: 50px 0 ;
+  text-align: center;
+  font-size: 150px;
+  /* font-family: 'Do Hyeon', sans-serif; */
+  font-family: 'Chakra Petch', sans-serif;
+}
+.searchForm{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.searchBar{
+  width: 80%;
+  height: 80px;
+  text-align: center;
+  font-size: 40px;
+  padding: 10px 50px;
+  margin-right: 25px;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 20px;
+}
+.searchBtn{
+  width: 10%;
+  height: 80px;
+  font-size: 30px;
+  cursor: pointer;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 25px;
+}
+.searchBtn:hover{
+  color: #fff;
+  background: #000;
+}
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&display=swap');
