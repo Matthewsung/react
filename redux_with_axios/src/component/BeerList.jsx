@@ -3,19 +3,25 @@ import axios from 'axios'
 import { Table, TableBody, TableHead,TableCell,TableRow } from '@material-ui/core'
 
 import BeerItem from './BeerItem'
-
-export default function BeerList() {
+import { useDispatch, useSelector } from 'react-redux'
+import {getData} from '../redux/beerlist/action'
+const BeerList = () => {
   const [data, setData] = useState()
   const [isLoading, setIsLoading] = useState(false)
+  const list = useSelector(state => state)
+  const dispatch = useDispatch();
+  const getApi = async () => {
+    const DATA = await axios.get('https://api.punkapi.com/v2/beers')
+    .catch(err => console.log(err))
+    dispatch(getData(list))
+
+    
+  } 
   
+
   useEffect(() => {
-    const getApi = axios.get('https://api.punkapi.com/v2/beers')
-    getApi.then(res => {
-      setData(res.data)
-      setIsLoading(true)
-  })
   }, [])
-  console.log(data)
+  console.log(list)
   return (
     <>
       <Table>
@@ -29,9 +35,12 @@ export default function BeerList() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {isLoading && data.map((v,i) => <BeerItem key={v.id} data={v}/>)}
+          {/* {!isLoading ? <TableRow><TableCell>LOADING...</TableCell></TableRow>  : data.map((v,i) => <BeerItem key={v.id} data={v}/>)} */}
+
         </TableBody>
       </Table>
     </>
   )
 }
+
+export default BeerList
