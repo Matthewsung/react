@@ -1,29 +1,29 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import axios from 'axios'
 import { Table, TableBody, TableHead,TableCell,TableRow } from '@material-ui/core'
 
 import BeerItem from './BeerItem'
+import BeerListFilter from './BeerListFilter'
 import { useDispatch, useSelector } from 'react-redux'
-import {getData} from '../redux/beerlist/action'
+import { getData , selectedData } from '../redux/beerlist/action'
+
 const BeerList = () => {
-  const [data, setData] = useState()
-  const [isLoading, setIsLoading] = useState(false)
-  const list = useSelector(state => state)
+  const list = useSelector(state => state.getData)
+  const selected_list = useSelector(state => state.selectedData)
   const dispatch = useDispatch();
   const getApi = async () => {
     const DATA = await axios.get('https://api.punkapi.com/v2/beers')
     .catch(err => console.log(err))
-    dispatch(getData(list))
-
-    
+    dispatch(getData(DATA.data))
+    dispatch(selectedData(DATA.data))
   } 
-  
 
-  useEffect(() => {
+  useEffect( () => {
+    getApi()
   }, [])
-  console.log(list)
   return (
     <>
+      <BeerListFilter />
       <Table>
         <TableHead>
           <TableRow>
@@ -35,8 +35,7 @@ const BeerList = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {/* {!isLoading ? <TableRow><TableCell>LOADING...</TableCell></TableRow>  : data.map((v,i) => <BeerItem key={v.id} data={v}/>)} */}
-
+          {selected_list.map((v,i) => <BeerItem key={v.id} data={v}/>)}
         </TableBody>
       </Table>
     </>

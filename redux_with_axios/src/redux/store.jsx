@@ -1,11 +1,7 @@
-import { createStore, applyMiddleware } from 'redux';
-import logger from'redux-logger'
-import {composeWithDevTools} from 'redux-devtools-extension'
-import thunk from ' redux-thunk'
+import { createStore,  } from 'redux';
 
 import { getDataReducer } from './beerlist/reducer';
 
-const middleware = [logger, thunk]
-const store = createStore(getDataReducer, composeWithDevTools(applyMiddleware(...middleware)));
+const store = createStore(getDataReducer);
 
 export default store;

@@ -2,13 +2,20 @@
   text-align: center;
 }
 
-
+*{box-sizing: border-box;}
 .modal{
   width: 100%;
   height: 100vh;
   text-align: center;
-  background: #ddd;
+  background: rgba(0, 0, 0, 0.3);
   position: fixed;
   left: 0;
   top: 0;
+}
+
+.img_box{
+  height: 50px;
+}
+.img_box img{
+  height: 100%;
 }
