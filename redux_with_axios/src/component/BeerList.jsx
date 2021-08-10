@@ -7,6 +7,11 @@ import BeerListFilter from './BeerListFilter'
 import { useDispatch, useSelector } from 'react-redux'
 import { getData , selectedData } from '../redux/beerlist/action'
 
+import styled from 'styled-components'
+const BeerListBox = styled.div`
+  width:1440px;
+  margin:0 auto ;
+`
 const BeerList = () => {
   const list = useSelector(state => state.getData)
   const selected_list = useSelector(state => state.selectedData)
@@ -21,15 +26,16 @@ const BeerList = () => {
   useEffect( () => {
     getApi()
   }, [])
+  
   return (
-    <>
+    <BeerListBox>
       <BeerListFilter />
       <Table>
         <TableHead>
           <TableRow>
             <TableCell>순위</TableCell>
-            <TableCell>맥주 이미지</TableCell>
-            <TableCell>맥주 이름</TableCell>
+            <TableCell>이미지</TableCell>
+            <TableCell>이름</TableCell>
             <TableCell>도수</TableCell>
             <TableCell>용량</TableCell>
           </TableRow>
@@ -38,7 +44,7 @@ const BeerList = () => {
           {selected_list.map((v,i) => <BeerItem key={v.id} data={v}/>)}
         </TableBody>
       </Table>
-    </>
+    </BeerListBox>
   )
 }
 
